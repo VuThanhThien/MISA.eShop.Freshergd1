@@ -53,6 +53,8 @@ namespace MISA.eSHOP.Service.Entity
                 return serviceResult;
             }
 
+            restaurant.RestaurantID = Guid.NewGuid();
+
             //kiểm tra cửa hnagf này có bị trùng không
             serviceResult = CheckDuplicatedRestaurant(restaurant);
 

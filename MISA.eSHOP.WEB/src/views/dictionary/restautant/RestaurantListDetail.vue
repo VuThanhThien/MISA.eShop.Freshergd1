@@ -54,7 +54,7 @@
               type="text"
               id="inputRestaurantAddress"
               rows="5"
-              v-model="restaurantInfo.restaurantAddress"
+              v-model="restaurantInfo.address"
             ></textarea>
           </div>
           <!-- Số điện thoại và mã thuế  -->
@@ -205,7 +205,7 @@
             <div style="color: #0088c1">Trợ giúp</div>
           </div>
           <div class="dialogFooterButtonBox">
-            <button class="dialogFooterButton" id="buttonSave">
+            <button class="dialogFooterButton" id="buttonSave" @click="addRestaurant">
               <div class="iconSave"></div>
               Lưu
             </button>
@@ -234,7 +234,59 @@ import * as axios from "axios";
 export default {
   name: "RestaurantListDetails",
   props: [],
+  computed:{
+    validateData() {
+      let returnData = {
+        error: false,
+        msg: "",
+      };
+      if (this.restaurantInfo.restaurantCode == null) {
+        returnData = {
+          error: true,
+          msg: "Vui lòng nhập mã cửa hàng",
+        };
+      }
+      if (this.restaurantInfo.restaurantName == null) {
+        returnData = {
+          error: true,
+          msg: "Vui lòng chọn loại tên cửa hàng",
+        };
+      }
+      if (this.restaurantInfo.address == null) {
+        returnData = {
+          error: true,
+          msg: "Vui lòng chọn địa chỉ",
+        };
+      }
+      return returnData;
+    },
+  },
   methods: {
+
+    addRestaurant() {
+      if (this.validateData.error) {
+        alert(this.validateData.msg);
+        
+      } else {
+        if (this.restaurantInfo.restaurantID == null) {
+          // Thực hiện post
+          const response = axios
+            .post("https://localhost:44305/api/v1/restaurants", this.restaurantInfo)
+            .catch((e) => console.log(e));
+          console.log(response);
+        } else {
+          // Thực hiện put
+          // let apiUrl =
+          //   "http://localhost:51888/api/v1/Assets/" + this.dataItem.assetId;
+          // const response = axios
+          //   .put(apiUrl, this.dataItem)
+          //   .catch((e) => console.log(e));
+          // console.log(response);
+        }
+        this.closeDialog();
+      }
+    },
+
     //Hàm đóng form 
     closeDialog() {
       this.$store.dispatch("closeDialog");
