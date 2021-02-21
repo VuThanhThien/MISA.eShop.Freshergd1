@@ -1,0 +1,117 @@
+/* navbar  */
+/*Tổng quan*/
+.navbarItemDashboard {
+    background-image: url('../../assets/icon/hamburger-menu.svg');
+}
+/*Báo cáo*/
+.navbarItemReport {
+    background-image: url('../../assets/icon/pie-chart-line.svg');
+}
+/* đơn hàng  */
+.navbarItemOrder{
+    background-image: url('../../assets/icon/common.svg');
+}
+.navbarItemSale{
+    background-image: url('../../assets/icon/search-eye-line.svg');
+}
+/*Cài đặt hệ thống*/
+.navbarItemSetting {
+    background-image: url('../../assets/icon/settings.svg');
+}
+/*Danh mục*/
+.navbarItemDic {
+    background-image: url('../../assets/icon/paint-brush-line.svg');
+}
+.navbarItemStock{
+    background-image: url('../../assets/icon/community-line.svg');
+}
+/* content  */
+.contentHeader .contentHeaderButton .iconHeader .iconAdd{
+    background: url("../../assets/common-icon.png") no-repeat -4px -130px;
+	width: 16px;
+	height: 16px;
+    margin-top: 6px;
+}
+.contentHeader .contentHeaderButton .iconHeader .iconDupplicate{
+    background: url("../../assets/common-icon.png") no-repeat -54px -204px;
+	width: 16px;
+	height: 16px;
+    margin-top: 3px;
+}
+.contentHeader .contentHeaderButton .iconHeader .iconEdit{
+    background: url("../../assets/common-icon.png") no-repeat -79px -205px;
+	width: 16px;
+	height: 16px;
+    margin-top: 5px;
+}
+
+.contentHeader .contentHeaderButton .iconHeader .iconDelete{
+    background: url("../../assets/common-icon.png") no-repeat -105px -204px;
+	width: 16px;
+	height: 16px;
+    margin-top: 3px;
+}
+
+.contentHeader .contentHeaderButton .iconHeader .iconImport{
+    background: url("../../assets/common-icon.png") no-repeat -129px -202px;
+	width: 16px;
+	height: 16px;
+}
+.searchBox .searchIcon{
+    background: url("../../assets/common-icon.png") no-repeat -1578px -129px;
+	width: 16px;
+	height: 16px; 
+}
+
+/* footer  */
+
+
+/* dialog  */
+ .iconHelp{
+    margin-left: 10px;
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/icon/help.svg');
+    cursor: pointer;
+}
+
+.iconSave{
+    background: url("../../assets/common-icon.png") no-repeat -330px -129px;
+	width: 11px;
+	height: 11px;
+    margin: 2px;
+    margin-right: 5px;
+}
+.iconSaveNew{
+    background: url("../../assets/common-icon.png") no-repeat -154px -205px;
+	width: 11px;
+	height: 10px;
+    margin: 2px;
+    margin-right: 5px;
+}
+.iconCancel{
+    background: url("../../assets/common-icon.png") no-repeat -255px -130px;
+	width: 10px;
+	height: 10px;
+    margin: 4px;
+    margin-right: 5px;  
+}
+.iconDelete{
+    background: url("../../assets/common-icon.png") no-repeat -4px -53px;
+	width: 11px;
+	height: 14px;
+    margin: 1px;
+    margin-right: 8px;  
+}
+.iconConfirm{
+    margin-left: 10px;
+    margin-right: 5px;
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/icon/help.svg');
+}

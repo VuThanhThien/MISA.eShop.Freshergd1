@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\bin\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.deps.json
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\bin\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.dll
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\bin\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.pdb
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\bin\Debug\netcoreapp3.1\MISA.eSHOP.Common.dll
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\bin\Debug\netcoreapp3.1\MISA.eSHOP.Common.pdb
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\obj\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\obj\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\obj\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.AssemblyInfo.cs
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\obj\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\obj\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.csproj.CopyComplete
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\obj\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.dll
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.DL\obj\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.pdb
