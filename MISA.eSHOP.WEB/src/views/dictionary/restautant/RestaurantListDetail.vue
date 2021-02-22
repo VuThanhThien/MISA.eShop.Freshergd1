@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="modal">
+    <div class="modal" >
       <!-- nền xám sau dialog  -->
       <div class="modalMask"></div>
-      <div class="dialog">
+      <div class="dialog" >
         <!-- header của dialog  -->
         <div class="dialogHeader">
           <button class="closeDialog" @click="closeDialog">
@@ -36,7 +36,7 @@
             <input
               type="text"
               id="inputRestaurantCode"
-              v-model="restaurantInfo.restaurantCode"
+              v-model="restaurantToBinding.restaurantCode"
             />
           </div>
           <!-- Dòng tên cửa hàng  -->
@@ -48,7 +48,7 @@
             <input
               type="text"
               id="inputRestaurantName"
-              v-model="restaurantInfo.restaurantName"
+              v-model="restaurantToBinding.restaurantName"
             />
           </div>
           <!-- Địa chỉ  -->
@@ -62,7 +62,7 @@
               type="text"
               id="inputRestaurantAddress"
               rows="5"
-              v-model="restaurantInfo.address"
+              v-model="restaurantToBinding.address"
             ></textarea>
           </div>
           <!-- Số điện thoại và mã thuế  -->
@@ -73,7 +73,7 @@
               <input
                 type="text"
                 id="phoneNumber"
-                v-model="restaurantInfo.phoneNumber"
+                v-model="restaurantToBinding.phoneNumber"
               />
             </div>
             <!-- thuế  -->
@@ -82,7 +82,7 @@
               <input
                 type="text"
                 id="taxCode"
-                v-model="restaurantInfo.taxCode"
+                v-model="restaurantToBinding.taxCode"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@
               <div class="fieldName">Quốc gia</div>
               <select
                 id="selectNation"
-                v-model="restaurantInfo.nationID"
+                v-model="restaurantToBinding.nationID"
                 await
                 v-on:change="onChangeNation($event)"
               >
@@ -119,7 +119,7 @@
               <div class="fieldName">Tỉnh / Thành phố</div>
               <select
                 id="selectCity"
-                v-model="restaurantInfo.cityID"
+                v-model="selectCity"
                 await
                 v-on:change="onChangeCity($event)"
               >
@@ -138,12 +138,13 @@
                 </option>
               </select>
             </div>
+            
             <!-- quận huyện  -->
             <div class="halfRow">
               <div class="fieldName">Quận / Huyện</div>
               <select
                 id="selectDistrict"
-                v-model="restaurantInfo.districtID"
+                v-model="restaurantToBinding.districtID"
                 await
                 v-on:change="onChangeDistrict($event)"
               >
@@ -170,7 +171,7 @@
               <div class="fieldName">Phường / Xã</div>
               <select
                 id="selectCommune"
-                v-model="restaurantInfo.communeID"
+                v-model="restaurantToBinding.communeID"
                 await
                 v-on:change="onChangeCommune($event)"
               >
@@ -193,7 +194,7 @@
             <!-- phố  -->
             <div class="halfRow">
               <div class="fieldName">Đường phố</div>
-              <select id="selectStreet" v-model="restaurantInfo.streetID">
+              <select id="selectStreet" v-model="restaurantToBinding.streetID">
                 <option
                   value="00000000-0000-0000-0000-000000000000"
                   :disabled="true"
@@ -256,7 +257,23 @@ import * as axios from "axios";
 export default {
   name: "RestaurantListDetails",
   props: {
-    defaultSelectID: String,
+    restaurantToBinding: Object,
+    cities: {
+        type: Array,
+        item: Object
+      },
+  },
+
+  data() {
+    return {
+      isShow: false,
+      selectCity: this.restaurantToBinding.cityID,
+      listData: [],
+      nations: [],
+      districts: [],
+      communes: [],
+      streets: [],
+    };
   },
 
   computed: {
@@ -265,19 +282,19 @@ export default {
         error: false,
         msg: "",
       };
-      if (this.restaurantInfo.restaurantCode == null) {
+      if (this.restaurantToBinding.restaurantCode == null) {
         returnData = {
           error: true,
           msg: "Vui lòng nhập mã cửa hàng",
         };
       }
-      if (this.restaurantInfo.restaurantName == null) {
+      if (this.restaurantToBinding.restaurantName == null) {
         returnData = {
           error: true,
           msg: "Vui lòng chọn loại tên cửa hàng",
         };
       }
-      if (this.restaurantInfo.address == null) {
+      if (this.restaurantToBinding.address == null) {
         returnData = {
           error: true,
           msg: "Vui lòng chọn địa chỉ",
@@ -286,6 +303,7 @@ export default {
       return returnData;
     },
   },
+
   methods: {
     /**
      * post restaurant
@@ -293,7 +311,7 @@ export default {
     postRestaurant() {
       // Thực hiện post
       const response = axios
-        .post("https://localhost:44305/api/v1/restaurants", this.restaurantInfo)
+        .post("https://localhost:44305/api/v1/restaurants", this.restaurantToBinding)
         .catch((e) => console.log(e));
       console.log(response);
     },
@@ -320,7 +338,7 @@ export default {
         console.log("chua validate");
       } else {
         if (
-          this.restaurantInfo.restaurantID ==
+          this.restaurantToBinding.restaurantID ==
           "00000000-0000-0000-0000-000000000000"
         ) {
           this.postRestaurant();
@@ -346,7 +364,7 @@ export default {
         alert(this.validateData.msg);
       } else {
         if (
-          this.restaurantInfo.restaurantID ==
+          this.restaurantToBinding.restaurantID ==
           "00000000-0000-0000-0000-000000000000"
         ) {
           this.postRestaurant();
@@ -404,32 +422,9 @@ export default {
       const resStreets = await axios.get(
         "https://localhost:44305/api/Streets/ByParent/" + event.target.value
       );
-      console.log(resStreets);
+      // console.log(resStreets);
       this.streets = resStreets.data.data;
     },
-  },
-  data() {
-    return {
-      isShow: false,
-      nations: [],
-      cities: [],
-      districts: [],
-      communes: [],
-      streets: [],
-      restaurantInfo: {
-        restaurantID: "00000000-0000-0000-0000-000000000000",
-        restaurantCode: "",
-        restaurantName: "",
-        address: "",
-        phoneNumber: "",
-        taxCode: "",
-        nationID: "00000000-0000-0000-0000-000000000000",
-        cityID: "00000000-0000-0000-0000-000000000000",
-        districtID: "00000000-0000-0000-0000-000000000000",
-        communeID: "00000000-0000-0000-0000-000000000000",
-        streetID: "00000000-0000-0000-0000-000000000000",
-      },
-    };
   },
 
   /**
@@ -439,8 +434,9 @@ export default {
    */
   async created() {
     const resNation = await axios.get("https://localhost:44305/api/Nations");
-    console.log(resNation);
+    // console.log(resNation);
     this.nations = resNation.data.data;
+
   },
 };
 </script>

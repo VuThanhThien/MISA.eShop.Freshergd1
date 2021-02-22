@@ -82,9 +82,12 @@ export default {
             .delete("https://localhost:44305/api/v1/restaurants/"+ 
             this.idToDelete)
             .catch((e) => console.log(e));
-      if(response)
-      console.log("Xóa thành công");
-      this.closePopup();
+      if(response){
+        location.reload();
+        alert("Xóa thành công cửa hàng "+ this.nameNeedDelete);
+        this.closePopup();
+      }
+      
     },
   },
   data() {

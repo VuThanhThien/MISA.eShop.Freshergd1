@@ -1,17 +1,20 @@
 <template>
   <div class="contenBody">
     <!-- header của content  -->
-    <div class="contentHeader">
+    <div class="contentHeader" >
       <!-- nút thêm  -->
-      <button class="contentHeaderButton" @click="openDialog">
+      <button class="contentHeaderButton" @click="openDialog" >
         <div class="iconHeader">
           <div class="iconAdd"></div>
         </div>
         <div class="iconText">Thêm mới</div>
       </button>
 
-      <Dialog v-if="isShow" />
-
+      <Dialog 
+      v-if="isShow" 
+      :restaurantToBinding="restaurantToBinding"
+      :cities="citiesFromNation"
+      />
       <!-- nhân bản  -->
       <button class="contentHeaderButton">
         <div class="iconHeader">
@@ -49,7 +52,7 @@
     </div>
 
     <!-- table  -->
-    <div class="gridTable">
+    <div class="gridTable" v-if="renderComponent">
       <table class="tableContent">
         <thead v-columns-resizable>
           <tr class="filter">
@@ -160,7 +163,7 @@
       </div>
 
       <div class="contentFooterRight">
-        <span>Hiển thị 1- 10 trên 10 kết quả</span>
+        <span>Hiển thị 1- 10 trên {{ restaurants.length }} kết quả</span>
       </div>
     </div>
   </div>
@@ -209,7 +212,14 @@ export default {
       const res = await axios.get("https://localhost:44305/api/v1/restaurants/" + this.idToDelete);
         if(res) {
           // console.log(res);
-          console.log( res.data.data);
+          console.log(res.data.data);
+          this.restaurantToBinding = res.data.data;
+
+          //get list city by nationID
+          this.citiesFromNation = (await axios.get("https://localhost:44305/api/Cities/ByParent/" + this.restaurantToBinding.nationID)).data.data;
+          console.log("thong tin tinh");
+          console.log(this.citiesFromNation);
+
         }
         else{
           console.log("K lấy được api get cửa hàng theo id");
@@ -246,13 +256,30 @@ export default {
       //gán tên cửa hàng cần xóa
       this.nameNeedDelete = restaurant.restaurantName;
     },
+
   },
   data() {
     return {
+      nations: [],
+      citiesFromNation: [],
+      renderComponent: true,
       idToDelete: "",
       nameNeedDelete: "",
       isActive: -1,
-      restaurantToBinding:[],
+      isEdit: false,
+      restaurantToBinding:{
+        restaurantID: "00000000-0000-0000-0000-000000000000",
+        restaurantCode: "",
+        restaurantName: "",
+        address: "",
+        phoneNumber: "",
+        taxCode: "",
+        nationID: "00000000-0000-0000-0000-000000000000",
+        cityID: "00000000-0000-0000-0000-000000000000",
+        districtID: "00000000-0000-0000-0000-000000000000",
+        communeID: "00000000-0000-0000-0000-000000000000",
+        streetID: "00000000-0000-0000-0000-000000000000",
+      },
       restaurants: [
         {
           RestaurantID: "",
