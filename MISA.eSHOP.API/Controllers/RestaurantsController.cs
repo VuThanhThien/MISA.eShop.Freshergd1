@@ -74,8 +74,23 @@ namespace MISA.eSHOP.API.Controllers
         /// <param name="id"></param>
         /// <param name="value"></param>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult PutRestaurant([FromRoute] Guid id, [FromBody] Restaurant restaurant)
         {
+            // Gọi đến hàm Insert thực hiện validate -> Sửa
+            var res = _restaurantService.UpdateRestaurant(id, restaurant);
+
+            if (res.Success == false)
+            {
+                return StatusCode(400, res.Data);
+            }
+            else if (res.Success == true && res.Data != null)
+            {
+                return StatusCode(201, res.Data);
+            }
+            else
+            {
+                return StatusCode(200, res.Data);
+            }
         }
 
         // DELETE api/<RestaurantsController>/5

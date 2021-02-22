@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj": {}
+    "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj": {
+    "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
+        "projectUniqueName": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
         "projectName": "MISA.eSHOP.API",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\obj\\",
+        "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
+        "packagesPath": "C:\\Users\\vtthien\\.nuget\\packages\\",
+        "outputPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vtthien\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
+              "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
+                "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj"
+              "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj": {
+                "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj"
               }
             }
           }
@@ -50,6 +50,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.0.78, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.3, )"
             },
             "MySql.Data": {
               "target": "Package",
@@ -82,17 +86,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
+    "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
+        "projectUniqueName": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
         "projectName": "MISA.eSHOP.Common",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\obj\\",
+        "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
+        "packagesPath": "C:\\Users\\vtthien\\.nuget\\packages\\",
+        "outputPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vtthien\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,17 +150,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj": {
+    "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
+        "projectUniqueName": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
         "projectName": "MISA.eSHOP.DataLayer",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\obj\\",
+        "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
+        "packagesPath": "C:\\Users\\vtthien\\.nuget\\packages\\",
+        "outputPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vtthien\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -170,8 +174,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
+              "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
+                "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
               }
             }
           }
@@ -214,17 +218,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj": {
+    "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj",
+        "projectUniqueName": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj",
         "projectName": "MISA.eSHOP.Service",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\obj\\",
+        "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj",
+        "packagesPath": "C:\\Users\\vtthien\\.nuget\\packages\\",
+        "outputPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vtthien\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -238,11 +242,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
+              "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
+                "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
               },
-              "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj"
+              "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj": {
+                "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj"
               }
             }
           }

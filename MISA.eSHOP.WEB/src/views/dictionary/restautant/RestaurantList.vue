@@ -3,10 +3,7 @@
     <!-- header của content  -->
     <div class="contentHeader">
       <!-- nút thêm  -->
-      <button 
-      class="contentHeaderButton" 
-      @click="openDialog"
-      >
+      <button class="contentHeaderButton" @click="openDialog">
         <div class="iconHeader">
           <div class="iconAdd"></div>
         </div>
@@ -23,26 +20,21 @@
         <div class="iconText">Nhân bản</div>
       </button>
       <!-- sửa  -->
-      <button 
-      class="contentHeaderButton" 
-      @click="openDialog"
-      >
+      <button class="contentHeaderButton" @click="openDialog">
         <div class="iconHeader">
           <div class="iconEdit"></div>
         </div>
         <div class="iconText">Sửa</div>
       </button>
       <!-- xóa  -->
-      <button 
-      class="contentHeaderButton" 
-      @click="openPopup"
-      >
+      <button class="contentHeaderButton" @click="openPopup">
         <div class="iconHeader">
           <div class="iconDelete"></div>
         </div>
         <div class="iconText">Xóa</div>
       </button>
-      <Popup v-if="showPopup" />
+
+      <Popup v-if="showPopup" :iDToDelete="iDToDelete"/>
       <!-- nạp  -->
       <button class="contentHeaderButton">
         <div class="iconHeader">
@@ -59,20 +51,14 @@
           <tr class="filter">
             <th width="10%">
               Mã cửa hàng
-              <div 
-              class="filterField" 
-              style="display: flex"
-              >
+              <div class="filterField" style="display: flex">
                 <div class="iconSearch">*</div>
                 <input class="searchField" />
               </div>
             </th>
-            <th width="20%">
+            <th width="15%">
               Tên cửa hàng
-              <div 
-              class="filterField" 
-              style="display: flex"
-              >
+              <div class="filterField" style="display: flex">
                 <div class="iconSearch">*</div>
                 <!-- <div class="searchField"></div>  -->
                 <input class="searchField" />
@@ -80,10 +66,7 @@
             </th>
             <th width="45%">
               Địa chỉ
-              <div 
-              class="filterField" 
-              style="display: flex"
-              >
+              <div class="filterField" style="display: flex">
                 <div class="iconSearch">*</div>
                 <!-- <div class="searchField"></div>  -->
                 <input class="searchField" />
@@ -91,10 +74,7 @@
             </th>
             <th width="10%">
               Số điện thoại
-              <div 
-              class="filterField" 
-              style="display: flex"
-              >
+              <div class="filterField" style="display: flex">
                 <div class="iconSearch">*</div>
                 <!-- <div class="searchField"></div> -->
                 <input class="searchField" />
@@ -102,10 +82,7 @@
             </th>
             <th width="5%">
               Mã số thuế
-              <div 
-              class="filterField" 
-              style="display: flex"
-              >
+              <div class="filterField" style="display: flex">
                 <div class="iconSearch">*</div>
                 <input class="searchField" />
               </div>
@@ -115,9 +92,10 @@
         <tbody>
           <tr
             class="tableRow"
-            v-for="restaurant in restaurants"
-            :key="restaurant.EmployeeCode"
-            @click="rowOnClick(restaurant)"
+            v-for="(restaurant, index) in restaurants"
+            :key="index"
+            :class="{ hightlight: isActive == index }"
+            @click="rowOnClick(restaurant, index)"
           >
             <td>
               <div class="cell">
@@ -203,7 +181,6 @@ export default {
     },
   },
   methods: {
-
     /**
      * Mở forrm
      * createdby vtthien 21/02/21
@@ -222,14 +199,20 @@ export default {
     /**
      * Chọn dòng hiện tại
      */
-    rowOnClick(restaurant) {
+    rowOnClick(restaurant, index) {
       this.restaurantTemp = restaurant;
+      this.isActive = index;
+      // this.idToDelete = restaurant.restaurantID;
+      console.log(restaurant.restaurantID);
     },
   },
   data() {
     return {
+      isActive: -1,
+      iDToDelete:"",
       restaurants: [
         {
+          RestaurantID: "",
           RestaurantCode: "MS1",
           RestaurantName: "Thiên",
           Address: " Ha Noi",
@@ -243,7 +226,9 @@ export default {
    * Gọi api lấy thông tin cửa hàng
    */
   async created() {
-    const response = await axios.get("https://localhost:44305/api/v1/restaurants");
+    const response = await axios.get(
+      "https://localhost:44305/api/v1/restaurants"
+    );
     this.restaurants = response.data.data;
   },
 };
@@ -271,5 +256,8 @@ export default {
   border: 1px solid #9e9e9e;
   /* width: 100%; */
   /* background-color: red; */
+}
+.hightlight {
+  background-color: aqua;
 }
 </style>

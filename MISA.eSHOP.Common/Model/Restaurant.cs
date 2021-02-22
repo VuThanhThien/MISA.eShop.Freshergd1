@@ -64,7 +64,7 @@ namespace MISA.eSHOP.Common.Model
         /// <summary>
         /// ID đường phố
         /// </summary>
-        public Guid StreetID { get; set; }
+        public Guid? StreetID { get; set; }
 
         ///// <summary>
         ///// Tạo bởi

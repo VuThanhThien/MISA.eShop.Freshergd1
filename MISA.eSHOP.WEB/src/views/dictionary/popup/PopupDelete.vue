@@ -3,92 +3,109 @@
     <div class="modal">
       <div class="modalMask"></div>
       <div class="popup">
-          <div class="dialogHeader">
-        <button class="closeDialog" @click="closePopup">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-x"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        <h3>Xóa dữ liệu</h3>
-      </div>
-      <div class="popupContent">
-        <div class="iconConfirm" ></div>
-        <div class="message">Bạn có chắc muốn xóa cửa hàng <span>{{restaurantName}}</span> khỏi danh sách cửa hàng hay không</div>
-      </div>
-      <hr />
-      <div class="dialogFooter" style="justify-content: flex-end">
-        <div class="dialogFooterButtonBox" >
-          <button class="dialogFooterButton" id="buttonDelete">
-            <div class="iconDelete"></div>
-            Xóa
+        <div class="dialogHeader">
+          <button class="closeDialog" @click="closePopup">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-x"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
           </button>
-          <button
-            class="dialogFooterButton"
-            id="buttonCancel"
-            @click="closePopup"
-          >
-            <div class="iconCancel"></div>
-            Hủy bỏ
-          </button>
+          <h3>Xóa dữ liệu</h3>
+        </div>
+        <div class="popupContent">
+          <div class="iconConfirm"></div>
+          <div class="message">
+            Bạn có chắc muốn xóa cửa hàng <span>{{ restaurantName }}</span> khỏi
+            danh sách cửa hàng hay không
+          </div>
+        </div>
+        <hr />
+        <div class="dialogFooter" style="justify-content: flex-end">
+          <div class="dialogFooterButtonBox">
+            <button
+              class="dialogFooterButton"
+              id="buttonDelete"
+              @click="deleteRestaurant"
+            >
+              <div class="iconDelete"></div>
+              Xóa
+            </button>
+            <button
+              class="dialogFooterButton"
+              id="buttonCancel"
+              @click="closePopup"
+            >
+              <div class="iconCancel"></div>
+              Hủy bỏ
+            </button>
+          </div>
         </div>
       </div>
-      </div>
-      
     </div>
   </div>
 </template>
 
 <script>
+// import * as axios from "axios";
 export default {
-    name:"PopupDelete",
-    props: [],
-    methods:{
-        closePopup(){
+  
+  name: "PopupDelete",
+  props:{
+    iDToDelete:String,
+  },
+  methods: {
+    closePopup() {
       this.$store.dispatch("closePopup");
     },
-    },
-    data(){
-        return{
-            showPopup: false,
-            restaurantName: "DODA Bà Triệu",
-        };
-    },
+
+    // deleteRestaurant() {
+    //   deleteUrl = "https://localhost:44305/api/v1/restaurants/"+ restaurant.restaurantID;
+    //   const response = axios
+    //         .delete(deleteUrl).catch((e) => console.log(e));
+    // },
+  },
+  data() {
+    return {
+      showPopup: false,
+      restaurantName: "DODA Bà Triệu",
+      restaurants:[],
+    };
+  },
 };
 </script>
 
 <style scoped>
-.popup{
-    width: 40%;
-    height: 28vh;
-    position: absolute;
-    left: 25%;
-    top: 14%;
-    background-color: #fff;
-    z-index: 4;
+.popup {
+  width: 40%;
+  height: 28vh;
+  position: absolute;
+  left: 25%;
+  top: 14%;
+  background-color: #fff;
+  z-index: 4;
 }
-.popupContent{
-    height: 15vh;
-    display: flex;
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top: 5%;
+.popupContent {
+  height: 15vh;
+  display: flex;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 5%;
 }
-.message{
-    padding-left: 20px;
+.message {
+  padding-left: 20px;
 }
-span{
-    font-weight: bold;
+span {
+  font-weight: bold;
 }
 </style>

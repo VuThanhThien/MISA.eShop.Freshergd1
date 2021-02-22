@@ -32,7 +32,7 @@ namespace MISA.eSHOP.API
         {
             
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(); ;
 
             //sửa lỗi cors
             services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
@@ -50,7 +50,7 @@ namespace MISA.eSHOP.API
             //base
             services.AddScoped(typeof(IBaseDL<>), typeof(BaseDLQuery<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
-            services.AddScoped(typeof(IDbContext<>), typeof(LocalDbContext<>));
+            services.AddScoped(typeof(IDbContext<>), typeof(OnlineDbContext<>));
 
             //Datalayer
             services.AddScoped<IRestaurantDL, RestaurantDL>();

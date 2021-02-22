@@ -33,7 +33,11 @@
               Mã cửa hàng
               <span>*</span>
             </div>
-            <input type="text" id="inputRestaurantCode" v-model="restaurantInfo.restaurantCode"/>
+            <input
+              type="text"
+              id="inputRestaurantCode"
+              v-model="restaurantInfo.restaurantCode"
+            />
           </div>
           <!-- Dòng tên cửa hàng  -->
           <div class="row" id="restaurantName">
@@ -41,7 +45,11 @@
               Tên cửa hàng
               <span>*</span>
             </div>
-            <input type="text" id="inputRestaurantName" v-model="restaurantInfo.restaurantName"/>
+            <input
+              type="text"
+              id="inputRestaurantName"
+              v-model="restaurantInfo.restaurantName"
+            />
           </div>
           <!-- Địa chỉ  -->
           <div class="row" id="restaurantAddress">
@@ -62,12 +70,20 @@
             <!-- số điện thoại  -->
             <div class="halfRow">
               <div class="fieldName">Số điện thoại</div>
-              <input type="text" id="phoneNumber" v-model="restaurantInfo.phoneNumber"/>
+              <input
+                type="text"
+                id="phoneNumber"
+                v-model="restaurantInfo.phoneNumber"
+              />
             </div>
             <!-- thuế  -->
             <div class="halfRow">
               <div class="fieldName">Mã số thuế</div>
-              <input type="text" id="taxCode" v-model="restaurantInfo.taxCode"/>
+              <input
+                type="text"
+                id="taxCode"
+                v-model="restaurantInfo.taxCode"
+              />
             </div>
           </div>
           <!-- Quốc gia  -->
@@ -80,11 +96,11 @@
                 await
                 v-on:change="onChangeNation($event)"
               >
-                <option 
-                value="-1" 
-                :disabled="true"
+                <option
+                  value="00000000-0000-0000-0000-000000000000"
+                  :disabled="true"
                 >
-                Chọn Quốc gia
+                  Chọn Quốc gia
                 </option>
                 <option
                   v-for="nation in nations"
@@ -107,10 +123,11 @@
                 await
                 v-on:change="onChangeCity($event)"
               >
-                <option 
-                value="-1" 
-                :disabled="true"
-                >Chọn Tỉnh/Thành phố
+                <option
+                  value="00000000-0000-0000-0000-000000000000"
+                  :disabled="true"
+                >
+                  Chọn Tỉnh/Thành phố
                 </option>
                 <option
                   v-for="city in cities"
@@ -130,11 +147,11 @@
                 await
                 v-on:change="onChangeDistrict($event)"
               >
-                <option 
-                value="-1" 
-                :disabled="true"
+                <option
+                  value="00000000-0000-0000-0000-000000000000"
+                  :disabled="true"
                 >
-                Chọn Quận/Huyện
+                  Chọn Quận/Huyện
                 </option>
                 <option
                   v-for="district in districts"
@@ -158,11 +175,11 @@
                 v-on:change="onChangeCommune($event)"
               >
                 >
-                <option 
-                value="-1" 
-                :disabled="true"
+                <option
+                  value="00000000-0000-0000-0000-000000000000"
+                  :disabled="true"
                 >
-                Chọn Xã/Phường
+                  Chọn Xã/Phường
                 </option>
                 <option
                   v-for="commune in communes"
@@ -176,15 +193,12 @@
             <!-- phố  -->
             <div class="halfRow">
               <div class="fieldName">Đường phố</div>
-              <select 
-              id="selectStreet" 
-              v-model="restaurantInfo.streetID"
-              >
-                <option 
-                value="-1" 
-                :disabled="true"
+              <select id="selectStreet" v-model="restaurantInfo.streetID">
+                <option
+                  value="00000000-0000-0000-0000-000000000000"
+                  :disabled="true"
                 >
-                Chọn Đường phố
+                  Chọn Đường phố
                 </option>
                 <option
                   v-for="street in streets"
@@ -205,11 +219,19 @@
             <div style="color: #0088c1">Trợ giúp</div>
           </div>
           <div class="dialogFooterButtonBox">
-            <button class="dialogFooterButton" id="buttonSave" @click="addRestaurant">
+            <button
+              class="dialogFooterButton"
+              id="buttonSave"
+              @click="addRestaurant"
+            >
               <div class="iconSave"></div>
               Lưu
             </button>
-            <button class="dialogFooterButton" id="buttonSaveNew">
+            <button
+              class="dialogFooterButton"
+              id="buttonSaveNew"
+              @click="addAndNewRestaurant"
+            >
               <div class="iconSaveNew"></div>
               Lưu và thêm mới
             </button>
@@ -233,8 +255,11 @@ import * as axios from "axios";
 
 export default {
   name: "RestaurantListDetails",
-  props: [],
-  computed:{
+  props: {
+    defaultSelectID: String,
+  },
+
+  computed: {
     validateData() {
       let returnData = {
         error: false,
@@ -262,34 +287,72 @@ export default {
     },
   },
   methods: {
+    /**
+     * post restaurant
+     */
+    postRestaurant() {
+      // Thực hiện post
+      const response = axios
+        .post("https://localhost:44305/api/v1/restaurants", this.restaurantInfo)
+        .catch((e) => console.log(e));
+      console.log(response);
+    },
+
+    /**
+     * put res
+     */
+    putRestaurant(){
+      // Thực hiện put
+      // let apiUrl =
+      //   "http://localhost:51888/api/v1/Assets/" + this.dataItem.assetId;
+      // const response = axios
+      //   .put(apiUrl, this.dataItem)
+      //   .catch((e) => console.log(e));
+      // console.log(response);
+    },
 
     addRestaurant() {
       if (this.validateData.error) {
         alert(this.validateData.msg);
-        
+        console.log("chua validate");
       } else {
-        if (this.restaurantInfo.restaurantID == null) {
-          // Thực hiện post
-          const response = axios
-            .post("https://localhost:44305/api/v1/restaurants", this.restaurantInfo)
-            .catch((e) => console.log(e));
-          console.log(response);
+        if (
+          this.restaurantInfo.restaurantID ==
+          "00000000-0000-0000-0000-000000000000"
+        ) {
+          this.postRestaurant();
         } else {
-          // Thực hiện put
-          // let apiUrl =
-          //   "http://localhost:51888/api/v1/Assets/" + this.dataItem.assetId;
-          // const response = axios
-          //   .put(apiUrl, this.dataItem)
-          //   .catch((e) => console.log(e));
-          // console.log(response);
+          this.putRestaurant();
         }
         this.closeDialog();
       }
     },
 
-    //Hàm đóng form 
+    /**
+     * Hàm đóng form
+     */
     closeDialog() {
       this.$store.dispatch("closeDialog");
+    },
+
+    /**
+     * luu va them moi
+     */
+    addAndNewRestaurant() {
+      if (this.validateData.error) {
+        alert(this.validateData.msg);
+      } else {
+        if (
+          this.restaurantInfo.restaurantID ==
+          "00000000-0000-0000-0000-000000000000"
+        ) {
+          this.postRestaurant();
+        } else {
+          this.putRestaurant();
+        }
+        this.closeDialog();
+        // this.$store.dispatch("openDialog");
+      }
     },
 
     /**
@@ -350,26 +413,24 @@ export default {
       districts: [],
       communes: [],
       streets: [],
-      restaurantInfo:[
-        {
-          restaurantID: "",
-          restaurantCode: "",
-          restaurantName: "",
-          address: "",
-          phoneNumber: "",
-          taxCode: "",
-          nationID: "-1",
-          cityID: "-1",
-          districtID: "-1",
-          communeID: "-1",
-          streetID: "-1"
-        }
-      ],
+      restaurantInfo: {
+        restaurantID: "00000000-0000-0000-0000-000000000000",
+        restaurantCode: "",
+        restaurantName: "",
+        address: "",
+        phoneNumber: "",
+        taxCode: "",
+        nationID: "00000000-0000-0000-0000-000000000000",
+        cityID: "00000000-0000-0000-0000-000000000000",
+        districtID: "00000000-0000-0000-0000-000000000000",
+        communeID: "00000000-0000-0000-0000-000000000000",
+        streetID: "00000000-0000-0000-0000-000000000000",
+      },
     };
   },
 
   /**
-   * 
+   *
    * Lấy thông tin Quốc gia
    * Createdby Vtthien 21/02/21
    */

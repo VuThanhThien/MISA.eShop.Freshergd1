@@ -1,5 +1,5 @@
 .gridTable {
-    max-height: 572px;
+    max-height: 80vh;
     overflow: auto;
 }
 thead th {

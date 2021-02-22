@@ -53,6 +53,7 @@ namespace MISA.eSHOP.Service.Entity
                 return serviceResult;
             }
 
+            //tu sinh guid id
             restaurant.RestaurantID = Guid.NewGuid();
 
             //kiểm tra cửa hnagf này có bị trùng không
@@ -86,8 +87,61 @@ namespace MISA.eSHOP.Service.Entity
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// update cwar hang
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="restaurant"></param>
+        /// <returns></returns>
         public ServiceResult UpdateRestaurant(Guid id, Restaurant restaurant)
         {
+            var serviceResult = new ServiceResult();
+            var errorMsg = new Error();
+            if (id != restaurant.RestaurantID)
+            {
+                return null;
+            }
+
+            // lay theo id
+            var restaurantUpdate = _restaurantDL.GetById(id);
+
+            if (restaurantUpdate != null)
+            {
+                // trước khi cập nhật, kiểm tra dữ liệu sau khi sửa có bị trùng lặp với người dùng khác hay không
+                //kiểm tra xem khách hàng này có các trường bị trùng lặp không
+                serviceResult = CheckDuplicatedRestaurant(restaurant, id.ToString());
+
+                // nếu bị trùng lặp, trả về luôn lỗi
+                if (!serviceResult.Success)
+                {
+                    return serviceResult;
+                }
+
+                // không bị trùng lặp mới cho phép cập nhật
+                var result = _restaurantDL.Update(restaurant);
+
+                if (result > 0)
+                {
+                    serviceResult.Success = true;
+                    serviceResult.Data = result;
+                    return serviceResult;
+                }
+                else
+                {
+                    serviceResult.Success = false;
+                    errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                    serviceResult.Data = errorMsg;
+                    return serviceResult;
+                }
+            }
+            else
+            {
+                serviceResult.Success = true;
+                errorMsg.DevMsg = DevMsgEnum.DefaultDevMsg;
+                errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                serviceResult.Data = errorMsg;
+                return serviceResult;
+            }
             throw new NotImplementedException();
         }
 
