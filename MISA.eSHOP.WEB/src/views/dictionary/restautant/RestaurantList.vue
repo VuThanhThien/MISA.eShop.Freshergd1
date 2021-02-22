@@ -20,7 +20,7 @@
         <div class="iconText">Nhân bản</div>
       </button>
       <!-- sửa  -->
-      <button class="contentHeaderButton" @click="openDialog">
+      <button class="contentHeaderButton" @click="openDialogToEdit">
         <div class="iconHeader">
           <div class="iconEdit"></div>
         </div>
@@ -34,7 +34,11 @@
         <div class="iconText">Xóa</div>
       </button>
 
-      <Popup v-if="showPopup" :idToDelete="idToDelete" :nameNeedDelete="nameNeedDelete" />
+      <Popup
+        v-if="showPopup"
+        :idToDelete="idToDelete"
+        :nameNeedDelete="nameNeedDelete"
+      />
       <!-- nạp  -->
       <button class="contentHeaderButton">
         <div class="iconHeader">
@@ -188,7 +192,7 @@ export default {
   },
   methods: {
     /**
-     * Mở forrm
+     * Mở forrm để thêm mới
      * createdby vtthien 21/02/21
      */
     openDialog() {
@@ -196,31 +200,59 @@ export default {
     },
 
     /**
+     * Mở form để sửa
+     */
+    async openDialogToEdit() {
+      // nếu đã chọn cửa hàng
+      if (this.isActive > -1) {
+        // lấy cửa hàng đã chọn theo id
+      const res = await axios.get("https://localhost:44305/api/v1/restaurants/" + this.idToDelete);
+        if(res) {
+          // console.log(res);
+          console.log( res.data.data);
+        }
+        else{
+          console.log("K lấy được api get cửa hàng theo id");
+        }
+        this.$store.dispatch("openDialog");
+
+      } else {
+        //nếu không, bắt chọn
+        alert("Chọn cửa hàng cần sửa");
+      }
+    },
+
+    /**
      * Mở popup xác nhận xóa
      */
     openPopup() {
-      this.$store.dispatch("openPopup");
+      if (this.isActive > -1) {
+        this.$store.dispatch("openPopup");
+      } else {
+        alert("Chọn cửa hàng cần xóa");
+      }
     },
 
     /**
      * Chọn dòng hiện tại
      */
     rowOnClick(restaurant, index) {
-      //gán rest temp bằng res đang chọn
+      //gán restaurantTemp bằng restaurant đang chọn
       this.restaurantTemp = restaurant;
       // active row đang chọn theo index
       this.isActive = index;
+      //gán id cần xóa bằng id của cửa hàng hiện tại
       this.idToDelete = restaurant.restaurantID;
+      //gán tên cửa hàng cần xóa
       this.nameNeedDelete = restaurant.restaurantName;
-      //truyền id cần xóa lên store
-      console.log(restaurant.restaurantID);
     },
   },
   data() {
     return {
-        idToDelete:"",
-        nameNeedDelete:"",
+      idToDelete: "",
+      nameNeedDelete: "",
       isActive: -1,
+      restaurantToBinding:[],
       restaurants: [
         {
           RestaurantID: "",
