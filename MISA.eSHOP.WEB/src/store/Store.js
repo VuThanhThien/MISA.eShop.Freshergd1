@@ -5,10 +5,13 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
+    // idToDelete:"",
     isShow: false,
     showPopup: false,
   },
   mutations: {
+    // rowOnClick(state){
+    // }
     openDialog(state) {
       state.isShow = true;
     },

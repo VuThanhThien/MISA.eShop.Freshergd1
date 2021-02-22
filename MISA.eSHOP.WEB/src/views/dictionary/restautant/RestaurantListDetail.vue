@@ -311,6 +311,9 @@ export default {
       // console.log(response);
     },
 
+    /**
+     * sự kiện nút thêm 
+     */
     addRestaurant() {
       if (this.validateData.error) {
         alert(this.validateData.msg);
@@ -336,7 +339,7 @@ export default {
     },
 
     /**
-     * luu va them moi
+     * sự kiện lưu và thêm mới
      */
     addAndNewRestaurant() {
       if (this.validateData.error) {

@@ -34,7 +34,7 @@
         <div class="iconText">Xóa</div>
       </button>
 
-      <Popup v-if="showPopup" :iDToDelete="iDToDelete"/>
+      <Popup v-if="showPopup" :idToDelete="idToDelete" :nameNeedDelete="nameNeedDelete" />
       <!-- nạp  -->
       <button class="contentHeaderButton">
         <div class="iconHeader">
@@ -173,9 +173,15 @@ export default {
     Popup,
   },
   computed: {
+    /**
+     * trả về trạng thái hiển thị form thêm/ sửa
+     */
     isShow() {
       return this.$store.state.isShow;
     },
+    /**
+     * trả về trạng thái hiển thị popup xóa
+     */
     showPopup() {
       return this.$store.state.showPopup;
     },
@@ -200,16 +206,21 @@ export default {
      * Chọn dòng hiện tại
      */
     rowOnClick(restaurant, index) {
+      //gán rest temp bằng res đang chọn
       this.restaurantTemp = restaurant;
+      // active row đang chọn theo index
       this.isActive = index;
-      // this.idToDelete = restaurant.restaurantID;
+      this.idToDelete = restaurant.restaurantID;
+      this.nameNeedDelete = restaurant.restaurantName;
+      //truyền id cần xóa lên store
       console.log(restaurant.restaurantID);
     },
   },
   data() {
     return {
+        idToDelete:"",
+        nameNeedDelete:"",
       isActive: -1,
-      iDToDelete:"",
       restaurants: [
         {
           RestaurantID: "",
@@ -222,9 +233,8 @@ export default {
       ],
     };
   },
-  /**
-   * Gọi api lấy thông tin cửa hàng
-   */
+
+  //Gọi api lấy thông tin cửa hàng
   async created() {
     const response = await axios.get(
       "https://localhost:44305/api/v1/restaurants"

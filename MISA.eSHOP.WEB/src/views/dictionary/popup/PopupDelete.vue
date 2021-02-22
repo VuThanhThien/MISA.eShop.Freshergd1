@@ -26,8 +26,8 @@
         <div class="popupContent">
           <div class="iconConfirm"></div>
           <div class="message">
-            Bạn có chắc muốn xóa cửa hàng <span>{{ restaurantName }}</span> khỏi
-            danh sách cửa hàng hay không
+            Bạn có chắc muốn xóa cửa hàng <span>{{ nameNeedDelete }}</span> khỏi
+            danh sách cửa hàng hay không ?
           </div>
         </div>
         <hr />
@@ -57,28 +57,39 @@
 </template>
 
 <script>
-// import * as axios from "axios";
+import * as axios from "axios";
 export default {
   
   name: "PopupDelete",
   props:{
-    iDToDelete:String,
+    idToDelete:String,
+    nameNeedDelete:String
   },
+  // props:{
+  //   idToDelete:String,
+  //   nameNeedDelete:String,
+  // },
   methods: {
+    /**
+     * đóng popup
+     */
     closePopup() {
       this.$store.dispatch("closePopup");
     },
 
-    // deleteRestaurant() {
-    //   deleteUrl = "https://localhost:44305/api/v1/restaurants/"+ restaurant.restaurantID;
-    //   const response = axios
-    //         .delete(deleteUrl).catch((e) => console.log(e));
-    // },
+    deleteRestaurant() {
+      const response = axios
+            .delete("https://localhost:44305/api/v1/restaurants/"+ 
+            this.idToDelete)
+            .catch((e) => console.log(e));
+      if(response)
+      console.log("Xóa thành công");
+      this.closePopup();
+    },
   },
   data() {
     return {
       showPopup: false,
-      restaurantName: "DODA Bà Triệu",
       restaurants:[],
     };
   },
@@ -104,6 +115,7 @@ export default {
 }
 .message {
   padding-left: 20px;
+  font-size: 20px;
 }
 span {
   font-weight: bold;
