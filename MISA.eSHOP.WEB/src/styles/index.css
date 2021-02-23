@@ -11,7 +11,7 @@
 @import './pages/_retaurant.css';
 @import './pages/_dialog.css';
 @import './basic/_footer.css';
-
+@import './pages/_popup.css';
 
 @font-face {
     font-family: 'GoogleSans-Regular';

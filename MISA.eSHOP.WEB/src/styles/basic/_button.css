@@ -30,10 +30,12 @@
     margin-left: 5px;
     margin-right: 5px;
     outline: none;
+    border: none;
     cursor: pointer;
     padding: 7px;
     display: flex;
     border-radius: 3px;
+    align-items: center;
 }
 #buttonSave{   
     background-color: #026b97;
