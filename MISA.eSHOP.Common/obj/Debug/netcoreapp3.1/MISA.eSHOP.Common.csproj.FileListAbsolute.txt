@@ -18,3 +18,5 @@ D:\vtthien\MISA.eShop\MISA.eSHOP.Common\obj\Debug\netcoreapp3.1\MISA.eSHOP.Commo
 D:\vtthien\MISA.eShop\MISA.eSHOP.Common\obj\Debug\netcoreapp3.1\MISA.eSHOP.Common.pdb
 D:\vtthien\MISA.eShop\MISA.eSHOP.Common\obj\Debug\netcoreapp3.1\MISA.eSHOP.Common.Properties.Resources.resources
 D:\vtthien\MISA.eShop\MISA.eSHOP.Common\obj\Debug\netcoreapp3.1\MISA.eSHOP.Common.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.Common\obj\Debug\netcoreapp3.1\MISA.eSHOP.Common.Properties.Resources.resources
+C:\Users\Admin\Desktop\MISA.eSHOP\MISA.eSHOP.Common\obj\Debug\netcoreapp3.1\MISA.eSHOP.Common.csproj.GenerateResource.cache

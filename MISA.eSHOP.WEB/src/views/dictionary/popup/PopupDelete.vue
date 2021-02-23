@@ -54,6 +54,7 @@
           </div>
         </div>
       </div>
+      <notifications group="foo" />
     </div>
   </div>
 </template>
@@ -80,10 +81,14 @@ export default {
         .delete("https://localhost:44305/api/v1/restaurants/" + this.idToDelete)
         .catch((e) => console.log(e));
       if (response) {
-        // location.reload();
+        location.reload();
         this.closePopup();
         // alert("Xóa thành công cửa hàng " + this.nameNeedDelete);
-        this.$notify({ group: 'app', text: 'Wrong password, please try again later' });
+        this.$notify({
+          group: 'foo',
+          title: 'Important message',
+          text: 'Hello user! This is a notification!'
+        });
       }
     },
   },

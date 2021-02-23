@@ -1007,19 +1007,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vtthien\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
       "projectName": "MISA.eSHOP.DataLayer",
-      "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
-      "packagesPath": "C:\\Users\\vtthien\\.nuget\\packages\\",
-      "outputPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.DL\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\MISA.eSHOP.DataLayer.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.DL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vtthien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1033,8 +1033,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
-              "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
+            "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
             }
           }
         }

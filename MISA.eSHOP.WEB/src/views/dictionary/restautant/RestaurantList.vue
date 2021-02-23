@@ -15,6 +15,7 @@
         :restaurantToBinding="restaurantToBinding"
         :cities="citiesFromNation"
         ref="details"
+        @resetDataRestaurant="resetDataRestaurant"
       />
       <!-- nhân bản  -->
       <button class="contentHeaderButton">
@@ -68,7 +69,7 @@
               Tên cửa hàng
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" />
+                <input class="searchField" v-model="filterRestaurantName"/>
               </div>
             </th>
             <th width="45%">
@@ -97,7 +98,7 @@
         <tbody>
           <tr
             class="tableRow"
-            v-for="(restaurant, index) in filteredAsset"
+            v-for="(restaurant, index) in restaurants"
             :key="index"
             :class="{ hightlight: isActive == index }"
             @click="rowOnClick(restaurant, index)"
@@ -190,23 +191,41 @@ export default {
     showPopup() {
       return this.$store.state.showPopup;
     },
-    filteredAsset() {
-      let 
-        filterPhoneNumber = this.filterPhone;
+    // filteredAsset() {
+    //   // let 
+    //   //   filterPhoneNumber = this.filterPhone;
 
-      return this.restaurants.filter(function (item) {
-        let filtered = true;
-        if (filtered) {
-          if (filterPhoneNumber && filterPhoneNumber.length > 0) {
-            filtered =
-              item.phoneNumber.includes(filterPhoneNumber);
-          }
-        }
-        return filtered;
-      });
-    },
+    //   // return this.restaurants.filter(function (item) {
+    //   //   let filtered = true;
+    //   //   if (filtered) {
+    //   //     if (filterPhoneNumber && filterPhoneNumber.length > 0) {
+    //   //       filtered =
+    //   //         item.phoneNumber.includes(filterPhoneNumber);
+    //   //     }
+    //   //   }
+    //   //   return filtered;
+    //   // });
+    //   // return this.restaurants.filter(function(item){
+    //   //   return item.restaurantName.includes(this.filterRestaurantName);
+    //   // })
+    // },
   },
   methods: {
+    resetDataRestaurant(){
+      this.restaurantToBinding = {
+        restaurantID: "00000000-0000-0000-0000-000000000000",
+        restaurantCode: "",
+        restaurantName: "",
+        address: "",
+        phoneNumber: "",
+        taxCode: "",
+        nationID: "00000000-0000-0000-0000-000000000000",
+        cityID: "00000000-0000-0000-0000-000000000000",
+        districtID: "00000000-0000-0000-0000-000000000000",
+        communeID: "00000000-0000-0000-0000-000000000000",
+        streetID: "00000000-0000-0000-0000-000000000000",
+      };
+    },
     /**
      * Mở forrm để thêm mới
      * createdby vtthien 21/02/21
@@ -222,26 +241,26 @@ export default {
       // nếu đã chọn cửa hàng
       if (this.isActive > -1) {
         // lấy cửa hàng đã chọn theo id
-        const res = await axios.get(
-          "https://localhost:44305/api/v1/restaurants/" + this.idToDelete
-        );
-        if (res) {
-          // console.log(res);
-          console.log(res.data.data);
-          this.restaurantToBinding = res.data.data;
+        // const res = await axios.get(
+        //   "https://localhost:44305/api/v1/restaurants/" + this.idToDelete
+        // );
+        // if (res) {
+        //   // console.log(res);
+        //   console.log(res.data.data);
+        //   this.restaurantToBinding = res.data.data;
 
-          //get list city by nationID
-          this.citiesFromNation = (
-            await axios.get(
-              "https://localhost:44305/api/Cities/ByParent/" +
-                this.restaurantToBinding.nationID
-            )
-          ).data.data;
-          // console.log("thong tin tinh");
-          // console.log(this.citiesFromNation);
-        } else {
-          console.log("K lấy được api get cửa hàng theo id");
-        }
+        //   //get list city by nationID
+        //   this.citiesFromNation = (
+        //     await axios.get(
+        //       "https://localhost:44305/api/Cities/ByParent/" +
+        //         this.restaurantToBinding.nationID
+        //     )
+        //   ).data.data;
+        //   // console.log("thong tin tinh");
+        //   // console.log(this.citiesFromNation);
+        // } else {
+        //   console.log("K lấy được api get cửa hàng theo id");
+        // }
         this.$store.dispatch("openDialog");
       } else {
         //nếu không, bắt chọn
@@ -265,7 +284,7 @@ export default {
      */
     rowOnClick(restaurant, index) {
       //gán restaurantTemp bằng restaurant đang chọn
-      this.restaurantTemp = restaurant;
+      this.restaurantToBinding = restaurant;
       // active row đang chọn theo index
       this.isActive = index;
       //gán id cần xóa bằng id của cửa hàng hiện tại
@@ -280,7 +299,7 @@ export default {
   data() {
     return {
       filterRestaurantCode:[],
-      filterRestaurantName:[],
+      filterRestaurantName:"",
       filterPhone:"",
       nations: [],
       citiesFromNation: [],

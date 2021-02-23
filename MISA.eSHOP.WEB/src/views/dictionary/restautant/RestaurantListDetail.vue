@@ -100,7 +100,7 @@
                 id="selectNation"
                 v-model="restaurantToBinding.nationID"
                 await
-                v-on:change="onChangeNation($event)"
+                @change="onChangeNation($event)"
               >
                 <option
                   value="00000000-0000-0000-0000-000000000000"
@@ -111,7 +111,8 @@
                 <option
                   v-for="nation in nations"
                   :key="nation.nationCode"
-                  v-bind:value="nation.nationID"
+                  :value="nation.nationID"
+                  
                 >
                   {{ nation.nationName }}
                 </option>
@@ -127,7 +128,7 @@
                 id="selectedCity"
                 v-model="selectedCity"
                 await
-                v-on:change="onChangeCity($event)"
+                @change="onChangeCity($event)"
               >
                 <option
                   value="00000000-0000-0000-0000-000000000000"
@@ -137,9 +138,9 @@
                 </option>
                 <!-- Todo dùng mixin  -->
                 <option
-                  v-for="city in cities"
+                v-for="city in cities"
                   :key="city.cityCode"
-                  v-bind:value="city.cityID"
+                  :value="city.cityID"
                 >
                   {{ city.cityName }}
                 </option>
@@ -153,7 +154,7 @@
                 id="selectDistrict"
                 v-model="restaurantToBinding.districtID"
                 await
-                v-on:change="onChangeDistrict($event)"
+                @change="onChangeDistrict($event)"
               >
                 <option
                   value="00000000-0000-0000-0000-000000000000"
@@ -164,7 +165,7 @@
                 <option
                   v-for="district in districts"
                   :key="district.districtCode"
-                  v-bind:value="district.districtID"
+                  :value="district.districtID"
                 >
                   {{ district.districtName }}
                 </option>
@@ -180,7 +181,7 @@
                 id="selectCommune"
                 v-model="restaurantToBinding.communeID"
                 await
-                v-on:change="onChangeCommune($event)"
+                @change="onChangeCommune($event)"
               >
                 >
                 <option
@@ -192,7 +193,7 @@
                 <option
                   v-for="commune in communes"
                   :key="commune.communeCode"
-                  v-bind:value="commune.communeID"
+                  :value="commune.communeID"
                 >
                   {{ commune.communeName }}
                 </option>
@@ -211,7 +212,8 @@
                 <option
                   v-for="street in streets"
                   :key="street.streetCode"
-                  v-bind:value="street.streetID"
+                  :value="street.streetID"
+
                 >
                   {{ street.streetName }}
                 </option>
@@ -266,11 +268,6 @@ export default {
   props: {
     // object cửa hàng để bind
     restaurantToBinding: Object,
-    //danh sách thành phố để bind
-    cities: {
-      type: Array,
-      item: Object,
-    },
   },
 
   data() {
@@ -287,6 +284,7 @@ export default {
       communes: [],
       //mảng đường phố rỗng
       streets: [],
+      cities:[],
     };
   },
 
@@ -392,6 +390,7 @@ export default {
         this.closeDialog();
         //load lại màn hình, vì chỉ gọi api xóa nhưng biến lưu danh sách cửa hàng vẫn chưa thay đổi
         location.reload();
+
       }
     },
 
@@ -400,6 +399,7 @@ export default {
      */
     closeDialog() {
       this.$store.dispatch("closeDialog");
+      this.$emit("resetDataRestaurant");
     },
 
     /**
@@ -482,6 +482,18 @@ export default {
     const resNation = await axios.get("https://localhost:44305/api/Nations");
     // console.log(resNation);
     this.nations = resNation.data.data;
+
+    const resCity = await axios.get("https://localhost:44305/api/Cities");
+    this.cities = resCity.data.data;
+
+    const resDistrict = await axios.get("https://localhost:44305/api/Districts");
+    this.districts = resDistrict.data.data;
+    
+    const resCommunes = await axios.get("https://localhost:44305/api/Communes");
+    this.communes = resCommunes.data.data;
+
+    const resStreets = await axios.get("https://localhost:44305/api/Streets");
+    this.streets = resStreets.data.data;
   },
   //#endregion
   // setFocusRestaurantCode: function()
