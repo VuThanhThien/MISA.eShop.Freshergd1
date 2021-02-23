@@ -6,7 +6,7 @@ using System;
 
 namespace MISA.eSHOP.Service.Entity
 {
-    public class RestaurantService: BaseService<Restaurant>, IRestaurantService
+    public class RestaurantService : BaseService<Restaurant>, IRestaurantService
     {
         private readonly IRestaurantDL _restaurantDL;
 

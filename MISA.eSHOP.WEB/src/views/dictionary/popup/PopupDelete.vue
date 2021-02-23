@@ -26,8 +26,9 @@
         <div class="popupContent">
           <div class="iconConfirm"></div>
           <div class="message">
-            Bạn có chắc muốn xóa cửa hàng <span>{{ nameNeedDelete }}</span> khỏi
-            danh sách cửa hàng hay không ?
+            Bạn có chắc muốn xóa cửa hàng
+            <span>{{ nameNeedDelete }}</span>
+            khỏi danh sách cửa hàng hay không ?
           </div>
         </div>
         <hr />

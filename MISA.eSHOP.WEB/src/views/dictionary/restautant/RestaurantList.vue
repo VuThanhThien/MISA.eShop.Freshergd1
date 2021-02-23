@@ -58,38 +58,35 @@
           <tr class="filter">
             <th width="10%">
               Mã cửa hàng
-              <div class="filterField" style="display: flex">
+              <div class="filterField">
                 <div class="iconSearch">*</div>
                 <input class="searchField" />
               </div>
             </th>
             <th width="15%">
               Tên cửa hàng
-              <div class="filterField" style="display: flex">
+              <div class="filterField">
                 <div class="iconSearch">*</div>
-                <!-- <div class="searchField"></div>  -->
                 <input class="searchField" />
               </div>
             </th>
             <th width="45%">
               Địa chỉ
-              <div class="filterField" style="display: flex">
+              <div class="filterField">
                 <div class="iconSearch">*</div>
-                <!-- <div class="searchField"></div>  -->
                 <input class="searchField" />
               </div>
             </th>
             <th width="10%">
               Số điện thoại
-              <div class="filterField" style="display: flex">
+              <div class="filterField">
                 <div class="iconSearch">*</div>
-                <!-- <div class="searchField"></div> -->
                 <input class="searchField" />
               </div>
             </th>
             <th width="5%">
               Mã số thuế
-              <div class="filterField" style="display: flex">
+              <div class="filterField">
                 <div class="iconSearch">*</div>
                 <input class="searchField" />
               </div>
@@ -307,9 +304,10 @@ export default {
 </script>
 <style scoped>
 .filter .filterField {
-  height: 40px;
+  height: 46px;
   width: 100%;
   padding: 4px;
+  display: flex;
 }
 .iconSearch {
   border: 1px solid #9e9e9e;
@@ -330,6 +328,6 @@ export default {
   /* background-color: red; */
 }
 .hightlight {
-  background-color: aqua;
+  background-color: #026b97;
 }
 </style>
