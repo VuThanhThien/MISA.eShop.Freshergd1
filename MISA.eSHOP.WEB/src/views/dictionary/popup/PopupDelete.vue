@@ -31,7 +31,7 @@
             khỏi danh sách cửa hàng hay không ?
           </div>
         </div>
-        <notifications position="top left" group="app"/>
+        <notifications group="app"/>
         <hr />
         <div class="dialogFooter" style="justify-content: flex-end">
           <div class="dialogFooterButtonBox">

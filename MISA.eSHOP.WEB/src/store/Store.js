@@ -4,41 +4,52 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
-  state: {
-    // idToDelete:"",
-    isShow: false,
-    showPopup: false,
-  },
-  mutations: {
-    // rowOnClick(state){
-    // }
-    openDialog(state) {
-      state.isShow = true;
+    state: {
+        // idToDelete:"",
+        isShow: false,
+        showPopup: false,
+        showPopupSuccess: false,
     },
-    closeDialog(state) {
-      state.isShow = false;
+    mutations: {
+
+        openDialog(state) {
+            state.isShow = true;
+        },
+        closeDialog(state) {
+            state.isShow = false;
+        },
+        openPopup(state) {
+            state.showPopup = true;
+        },
+        closePopup(state) {
+            state.showPopup = false;
+        },
+        openPopupSuccess(state) {
+            state.showPopupSuccess = true;
+        },
+        closePopupSuccess(state) {
+            state.showPopupSuccess = false;
+        }
     },
-    openPopup(state) {
-      state.showPopup= true;
+    actions: {
+        openDialog: ({ commit }) => {
+            commit('openDialog');
+        },
+        closeDialog({ commit }) {
+            commit('closeDialog');
+        },
+        openPopup: ({ commit }) => {
+            commit('openPopup');
+        },
+        closePopup({ commit }) {
+            commit('closePopup');
+        },
+        openPopupSuccess: ({ commit }) => {
+            commit('openPopupSuccess');
+        },
+        closePopupSuccess({ commit }) {
+            commit('closePopupSuccess');
+        },
     },
-    closePopup(state) {
-      state.showPopup = false;
-    }
-  },
-  actions: {
-    openDialog: ({ commit }) => {
-      commit('openDialog');
-    },
-    closeDialog({ commit }) {
-      commit('closeDialog');
-    },
-    openPopup: ({ commit }) => {
-      commit('openPopup');
-    },
-    closePopup({ commit }) {
-      commit('closePopup');
-    },
-  },
-  modules: {
-  }
+    modules: {}
 })

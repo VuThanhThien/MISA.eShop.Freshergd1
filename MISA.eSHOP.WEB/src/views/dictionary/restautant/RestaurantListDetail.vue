@@ -388,6 +388,7 @@ export default {
         } else {
           this.putRestaurant();
         }
+        
         this.closeDialog();
         //load lại màn hình, vì chỉ gọi api xóa nhưng biến lưu danh sách cửa hàng vẫn chưa thay đổi
         location.reload();

@@ -14,6 +14,7 @@
         v-if="isShow"
         :restaurantToBinding="restaurantToBinding"
         :cities="citiesFromNation"
+        ref="details"
       />
       <!-- nhân bản  -->
       <button class="contentHeaderButton">
@@ -257,9 +258,30 @@ export default {
       //gán tên cửa hàng cần xóa
       this.nameNeedDelete = restaurant.restaurantName;
     },
+
+    filteredAsset() {
+      let 
+        filterPhoneNumber = this.restaurant.phoneNumber;
+
+      return this.restaurants.filter(function (item) {
+        let filtered = true;
+        if (filtered) {
+          if (filterPhoneNumber && filterPhoneNumber.length > 0) {
+            filtered =
+              item.restaurant.phoneNumber.toLowerCase().includes(filterPhoneNumber.toLowerCase()) ||
+              item.restaurant.phoneNumber.toUperCase().includes(filterPhoneNumber.toUperCase());
+          }
+        }
+        return filtered;
+      });
+    },
+
   },
   data() {
     return {
+      filterRestaurantCode:[],
+      filterRestaurantName:[],
+      filterPhoneNumber:[],
       nations: [],
       citiesFromNation: [],
       renderComponent: true,
