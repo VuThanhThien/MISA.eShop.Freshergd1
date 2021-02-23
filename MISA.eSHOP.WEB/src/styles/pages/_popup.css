@@ -1,8 +1,8 @@
 .popup {
-    width: 400px;
+    width: 600px;
     height: 240px;
     position: fixed;
-    left: calc(50% - 200px);
+    left: calc(50% - 300px);
     top: calc( 50% - 300px);
     background-color: #fff;
     z-index: 4;

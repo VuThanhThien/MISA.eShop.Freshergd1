@@ -82,7 +82,7 @@
               Số điện thoại
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" />
+                <input class="searchField" v-model="filterPhone"/>
               </div>
             </th>
             <th width="5%">
@@ -97,7 +97,7 @@
         <tbody>
           <tr
             class="tableRow"
-            v-for="(restaurant, index) in restaurants"
+            v-for="(restaurant, index) in filteredAsset"
             :key="index"
             :class="{ hightlight: isActive == index }"
             @click="rowOnClick(restaurant, index)"
@@ -190,6 +190,21 @@ export default {
     showPopup() {
       return this.$store.state.showPopup;
     },
+    filteredAsset() {
+      let 
+        filterPhoneNumber = this.filterPhone;
+
+      return this.restaurants.filter(function (item) {
+        let filtered = true;
+        if (filtered) {
+          if (filterPhoneNumber && filterPhoneNumber.length > 0) {
+            filtered =
+              item.phoneNumber.includes(filterPhoneNumber);
+          }
+        }
+        return filtered;
+      });
+    },
   },
   methods: {
     /**
@@ -259,29 +274,14 @@ export default {
       this.nameNeedDelete = restaurant.restaurantName;
     },
 
-    filteredAsset() {
-      let 
-        filterPhoneNumber = this.restaurant.phoneNumber;
-
-      return this.restaurants.filter(function (item) {
-        let filtered = true;
-        if (filtered) {
-          if (filterPhoneNumber && filterPhoneNumber.length > 0) {
-            filtered =
-              item.restaurant.phoneNumber.toLowerCase().includes(filterPhoneNumber.toLowerCase()) ||
-              item.restaurant.phoneNumber.toUperCase().includes(filterPhoneNumber.toUperCase());
-          }
-        }
-        return filtered;
-      });
-    },
+    
 
   },
   data() {
     return {
       filterRestaurantCode:[],
       filterRestaurantName:[],
-      filterPhoneNumber:[],
+      filterPhone:"",
       nations: [],
       citiesFromNation: [],
       renderComponent: true,
