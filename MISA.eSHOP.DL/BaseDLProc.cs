@@ -133,6 +133,13 @@ namespace MISA.eSHOP.DataLayer
             return result;
         }
 
+        /// <summary>
+        /// Lấy danh sách trường con theo id và tên trường của cha
+        /// </summary>
+        /// <param name="id">id của cha</param>
+        /// <param name="parentField">tên trường của cha</param>
+        /// <returns>danh scahs con</returns>
+        /// created by vtthien 22/02/21
         public IEnumerable<T> GetByIDParent(Guid id, string parentField)
         {
             throw new NotImplementedException();

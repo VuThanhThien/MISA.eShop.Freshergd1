@@ -20,6 +20,12 @@ namespace MISA.eSHOP.DataLayer.Interface
         /// <returns></returns>
         T GetById(Guid id);
 
+        /// <summary>
+        /// Lấy theo bố mẹ
+        /// </summary>
+        /// <param name="id">id của bố mẹ</param>
+        /// <param name="parentField">tên trường cha của đối tượng cần tìm theo</param>
+        /// <returns>danh sách con</returns>
         IEnumerable<T> GetByIDParent(Guid id, string parentField);
 
         /// <summary>
