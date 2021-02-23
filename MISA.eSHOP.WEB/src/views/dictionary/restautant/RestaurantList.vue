@@ -217,8 +217,8 @@ export default {
 
           //get list city by nationID
           this.citiesFromNation = (await axios.get("https://localhost:44305/api/Cities/ByParent/" + this.restaurantToBinding.nationID)).data.data;
-          console.log("thong tin tinh");
-          console.log(this.citiesFromNation);
+          // console.log("thong tin tinh");
+          // console.log(this.citiesFromNation);
 
         }
         else{

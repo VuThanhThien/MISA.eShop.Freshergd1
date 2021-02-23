@@ -324,6 +324,7 @@ export default {
       if(response){
           alert("Đã thêm mới thành công cửa hàng "+ this.restaurantToBinding.restaurantName);
         }
+      this.$set(this,'restaurantToBinding',[]);
     },
 
     /**
