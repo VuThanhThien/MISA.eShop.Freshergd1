@@ -1,9 +1,9 @@
 .popup {
-    width: 40%;
-    height: 25vh;
-    position: absolute;
-    left: 25%;
-    top: 14%;
+    width: 400px;
+    height: 240px;
+    position: fixed;
+    left: calc(50% - 200px);
+    top: calc( 50% - 300px);
     background-color: #fff;
     z-index: 4;
 }

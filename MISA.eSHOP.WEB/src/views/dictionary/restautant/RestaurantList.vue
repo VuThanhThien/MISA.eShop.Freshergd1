@@ -282,12 +282,17 @@ export default {
       },
       restaurants: [
         {
-          RestaurantID: "",
-          RestaurantCode: "MS1",
-          RestaurantName: "Thiên",
-          Address: " Ha Noi",
-          PhoneNumber: "09669856810",
-          Status: "Đang làm việc",
+          restaurantID: "00000000-0000-0000-0000-000000000000",
+        restaurantCode: "",
+        restaurantName: "",
+        address: "",
+        phoneNumber: "",
+        taxCode: "",
+        nationID: "00000000-0000-0000-0000-000000000000",
+        cityID: "00000000-0000-0000-0000-000000000000",
+        districtID: "00000000-0000-0000-0000-000000000000",
+        communeID: "00000000-0000-0000-0000-000000000000",
+        streetID: "00000000-0000-0000-0000-000000000000",
         },
       ],
     };

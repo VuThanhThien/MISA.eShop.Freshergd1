@@ -1,9 +1,9 @@
 .dialog {
-    width: 46%;
-    height: 60vh;
-    position: absolute;
-    left: 20%;
-    top: -4%;
+    width: 775px;
+    height: 580px;
+    position: fixed;
+    left: calc(50% - 387px);
+    top: calc(50% - 300px);
     background-color: #fff;
     z-index: 4;
 }

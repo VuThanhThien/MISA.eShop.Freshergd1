@@ -23,7 +23,7 @@
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
-          <h3>Thêm mới cửa hàng</h3>
+          <h3>Thông tin cửa hàng</h3>
         </div>
 
         <!-- dòng mã cửa hàng  -->
@@ -135,6 +135,7 @@
                 >
                   Chọn Tỉnh/Thành phố
                 </option>
+                <!-- Todo dùng mixin  -->
                 <option
                   v-for="city in cities"
                   :key="city.cityCode"
@@ -419,6 +420,7 @@ export default {
       }
     },
 
+    //#region  các sự kiện khi trường địa chỉ cha thay đổi
     /**
      * Khi người dùng chọn thông tin quốc gia --> thành phố thay đổi
      * Thì gọi api để lấy danh sách các tỉnh thành của quốc gia đang được chọn
@@ -480,7 +482,7 @@ export default {
     // console.log(resNation);
     this.nations = resNation.data.data;
   },
-
+  //#endregion
   // setFocusRestaurantCode: function()
   //   {
   //     this.$refs.inputRestaurantCode.focus();
