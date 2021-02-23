@@ -8,9 +8,9 @@ select {
     height: 40px;
     box-sizing: border-box !important;
     font-family: GoogleSans-Regular;
-
 }
-textarea{
+
+textarea {
     padding: 10px 16px;
     border-radius: 4px !important;
     outline: none !important;
@@ -19,6 +19,7 @@ textarea{
     box-sizing: border-box !important;
     font-family: GoogleSans-Regular;
 }
+
 input[type="radio"] {
     height: 20px;
     width: 20px;
@@ -68,7 +69,9 @@ input::placeholder {
     z-index: 0;
 }
 
+
 /* Combobox */
+
 .myCombobox {
     position: relative;
     display: block;

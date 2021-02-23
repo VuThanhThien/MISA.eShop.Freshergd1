@@ -1,19 +1,19 @@
 <template>
   <div class="contenBody">
     <!-- header của content  -->
-    <div class="contentHeader" >
+    <div class="contentHeader">
       <!-- nút thêm  -->
-      <button class="contentHeaderButton" @click="openDialog" >
+      <button class="contentHeaderButton" @click="openDialog">
         <div class="iconHeader">
           <div class="iconAdd"></div>
         </div>
         <div class="iconText">Thêm mới</div>
       </button>
 
-      <Dialog 
-      v-if="isShow" 
-      :restaurantToBinding="restaurantToBinding"
-      :cities="citiesFromNation"
+      <Dialog
+        v-if="isShow"
+        :restaurantToBinding="restaurantToBinding"
+        :cities="citiesFromNation"
       />
       <!-- nhân bản  -->
       <button class="contentHeaderButton">
@@ -209,23 +209,27 @@ export default {
       // nếu đã chọn cửa hàng
       if (this.isActive > -1) {
         // lấy cửa hàng đã chọn theo id
-      const res = await axios.get("https://localhost:44305/api/v1/restaurants/" + this.idToDelete);
-        if(res) {
+        const res = await axios.get(
+          "https://localhost:44305/api/v1/restaurants/" + this.idToDelete
+        );
+        if (res) {
           // console.log(res);
           console.log(res.data.data);
           this.restaurantToBinding = res.data.data;
 
           //get list city by nationID
-          this.citiesFromNation = (await axios.get("https://localhost:44305/api/Cities/ByParent/" + this.restaurantToBinding.nationID)).data.data;
+          this.citiesFromNation = (
+            await axios.get(
+              "https://localhost:44305/api/Cities/ByParent/" +
+                this.restaurantToBinding.nationID
+            )
+          ).data.data;
           // console.log("thong tin tinh");
           // console.log(this.citiesFromNation);
-
-        }
-        else{
+        } else {
           console.log("K lấy được api get cửa hàng theo id");
         }
         this.$store.dispatch("openDialog");
-
       } else {
         //nếu không, bắt chọn
         alert("Chọn cửa hàng cần sửa");
@@ -256,7 +260,6 @@ export default {
       //gán tên cửa hàng cần xóa
       this.nameNeedDelete = restaurant.restaurantName;
     },
-
   },
   data() {
     return {
@@ -267,7 +270,7 @@ export default {
       nameNeedDelete: "",
       isActive: -1,
       isEdit: false,
-      restaurantToBinding:{
+      restaurantToBinding: {
         restaurantID: "00000000-0000-0000-0000-000000000000",
         restaurantCode: "",
         restaurantName: "",

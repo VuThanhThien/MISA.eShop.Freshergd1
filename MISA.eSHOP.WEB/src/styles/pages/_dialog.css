@@ -7,6 +7,7 @@
     background-color: #fff;
     z-index: 4;
 }
+
 .modalMask {
     position: fixed;
     z-index: 3;
@@ -18,9 +19,11 @@
     display: table;
     transition: opacity 0.3s ease;
 }
+
 .dialogHeader {
     background-color: #eceaea;
 }
+
 h3 {
     padding: 10px;
     font-weight: bold;
@@ -34,47 +37,62 @@ h3 {
     border: none;
     background-color: transparent !important;
 }
+
 .dialogContent {
     padding: 15px;
 }
+
 .dialogContent .row {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
 }
+
 #inputRestaurantCode,
 #inputRestaurantName,
 #inputRestaurantAddress {
     width: 80%;
 }
 
+#inputRestaurantCode :focus {
+    background-color: lighten(purple, 5%);
+    border-color: lighten(purple, 5%);
+}
+
 .row .fieldName {
     width: 100px;
 }
-.row .fieldName span{
+
+.row .fieldName span {
     color: red;
 }
+
 .halfRow {
     margin-top: 15px;
     display: flex;
 }
+
 .halfRow .fieldName {
     padding-top: 10px;
     width: 150px;
 }
+
 .halfRow input,
 select {
     width: 200px;
 }
+
 .mergeHalfRow {
     display: flex;
     justify-content: space-between;
 }
-.dialogFooter{
+
+.dialogFooter {
     display: flex;
     justify-content: space-between;
     height: 55px;
 }
+
 .dialogFooter .help {
     height: 60px;
     display: flex;

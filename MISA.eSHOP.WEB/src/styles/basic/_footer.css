@@ -1,4 +1,4 @@
-.contentFooter{
+.contentFooter {
     position: relative;
     display: flex;
     width: 100%;
@@ -9,62 +9,36 @@
     align-items: center;
 }
 
-.contentFooterLeft{
+.contentFooterLeft {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.contentFooterPaging{
+
+.contentFooterPaging {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
+
 .contentFooterPaging span {
     margin-left: 5px;
     margin-right: 5px;
 }
-.buttonPage{
+
+.buttonPage {
     height: 35px;
     padding: 10px;
-    background-color:transparent;
+    background-color: transparent;
     justify-content: space-between;
     align-items: center;
     margin-left: 15px;
     border: #d1f1ff solid 3px;
     border-radius: 6px;
 }
-.buttonPage:focus{
-    border: #026b97 solid 3px;
-    outline: none;
-}
-.firstPage{
-    background: url("../../assets/common-icon.png") no-repeat -656px -131px;
-	width: 8px;
-	height: 8px;
-}
-.prevPage{
-    background: url("../../assets/common-icon.png") no-repeat -708px -131px;
-	width: 5px;
-	height: 8px;  
-}
 
-.nextPage{
-    background: url("../../assets/common-icon.png") no-repeat -758px -131px;
-	width: 5px;
-	height: 8px;
-}
-.lastPage{
-    background: url("../../assets/common-icon.png") no-repeat -806px -131px;
-	width: 8px;
-	height: 8px; 
-}
-.refresh{
-    background: url("../../assets/common-icon.png") no-repeat -855px -128px;
-	width: 10px;
-	height: 14px;
-}
+
 /* .currentPage{
     height: 35px;
     width: 50px;
@@ -72,12 +46,15 @@
     align-items: center !important;
     justify-content: center;
 } */
-.contentFooterPaging{
+
+.contentFooterPaging {
     margin-left: 10px;
 }
-.typePage{
+
+.typePage {
     margin-left: 10px;
 }
-.contentFooterRight{
+
+.contentFooterRight {
     margin-right: 15px;
 }

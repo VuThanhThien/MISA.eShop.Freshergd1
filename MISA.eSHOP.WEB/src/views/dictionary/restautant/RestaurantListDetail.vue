@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="modal" >
+    <div class="modal">
       <!-- nền xám sau dialog  -->
       <div class="modalMask"></div>
-      <div class="dialog" >
+      <div class="dialog">
         <!-- header của dialog  -->
         <div class="dialogHeader">
           <button class="closeDialog" @click="closeDialog">
@@ -37,6 +37,8 @@
               type="text"
               id="inputRestaurantCode"
               v-model="restaurantToBinding.restaurantCode"
+              ref="inputRestaurantCode"
+              placeholder="Nhập mã cửa hàng"
             />
           </div>
           <!-- Dòng tên cửa hàng  -->
@@ -49,6 +51,8 @@
               type="text"
               id="inputRestaurantName"
               v-model="restaurantToBinding.restaurantName"
+              ref="inputRestaurantName"
+              placeholder="Nhập tên cửa hàng"
             />
           </div>
           <!-- Địa chỉ  -->
@@ -63,6 +67,8 @@
               id="inputRestaurantAddress"
               rows="5"
               v-model="restaurantToBinding.address"
+              ref="inputAddress"
+              placeholder="Nhập địa chỉ"
             ></textarea>
           </div>
           <!-- Số điện thoại và mã thuế  -->
@@ -138,7 +144,7 @@
                 </option>
               </select>
             </div>
-            
+
             <!-- quận huyện  -->
             <div class="halfRow">
               <div class="fieldName">Quận / Huyện</div>
@@ -261,17 +267,16 @@ export default {
     restaurantToBinding: Object,
     //danh sách thành phố để bind
     cities: {
-        type: Array,
-        item: Object
-      },
-    
+      type: Array,
+      item: Object,
+    },
   },
 
   data() {
     return {
       //biến đóng mở trạng thái form
       isShow: false,
-      //id thành phố của res được lấy 
+      //id thành phố của res được lấy
       selectedCity: this.restaurantToBinding.cityID,
       // mảng quốc gia rỗng
       nations: [],
@@ -286,23 +291,36 @@ export default {
 
   computed: {
     validateData() {
+      // const listRestaurantCode = axios
+      // .get("")
+
       let returnData = {
         error: false,
         msg: "",
       };
-      if (this.restaurantToBinding.restaurantCode == null || this.restaurantToBinding.restaurantCode == "") {
+
+      if (
+        this.restaurantToBinding.restaurantCode == null ||
+        this.restaurantToBinding.restaurantCode == ""
+      ) {
         returnData = {
           error: true,
           msg: "Vui lòng nhập mã cửa hàng",
         };
       }
-      if (this.restaurantToBinding.restaurantName == null || this.restaurantToBinding.restaurantName == "") {
+      if (
+        this.restaurantToBinding.restaurantName == null ||
+        this.restaurantToBinding.restaurantName == ""
+      ) {
         returnData = {
           error: true,
           msg: "Vui lòng chọn tên cửa hàng",
         };
       }
-      if (this.restaurantToBinding.address == null || this.restaurantToBinding.address == "") {
+      if (
+        this.restaurantToBinding.address == null ||
+        this.restaurantToBinding.address == ""
+      ) {
         returnData = {
           error: true,
           msg: "Vui lòng chọn địa chỉ",
@@ -319,33 +337,46 @@ export default {
     postRestaurant() {
       // Thực hiện post
       const response = axios
-        .post("https://localhost:44305/api/v1/restaurants", this.restaurantToBinding)
+        .post(
+          "https://localhost:44305/api/v1/restaurants",
+          this.restaurantToBinding
+        )
         .catch((e) => console.log(e));
-      if(response){
-          alert("Đã thêm mới thành công cửa hàng "+ this.restaurantToBinding.restaurantName);
-        }
+      if (response) {
+        alert(
+          "Đã thêm mới thành công cửa hàng " +
+            this.restaurantToBinding.restaurantName
+        );
+      }
     },
 
     /**
      * put res
      */
-    putRestaurant(){
+    putRestaurant() {
       // Thực hiện put
       const response = axios
-        .put("https://localhost:44305/api/v1/restaurants/" + this.restaurantToBinding.restaurantID , this.restaurantToBinding)
+        .put(
+          "https://localhost:44305/api/v1/restaurants/" +
+            this.restaurantToBinding.restaurantID,
+          this.restaurantToBinding
+        )
         .catch((e) => console.log(e));
-        if(response){
-          alert("Đã cập nhật thành công cửa hàng "+ this.restaurantToBinding.restaurantName);
-        }
+      if (response) {
+        alert(
+          "Đã cập nhật thành công cửa hàng " +
+            this.restaurantToBinding.restaurantName
+        );
+      }
     },
 
     /**
-     * sự kiện nút thêm 
+     * sự kiện nút thêm
      */
     addRestaurant() {
-
       if (this.validateData.error) {
         alert(this.validateData.msg);
+        // this.setFocusRestaurantCode();
         console.log("chua validate");
       } else {
         if (
@@ -448,8 +479,12 @@ export default {
     const resNation = await axios.get("https://localhost:44305/api/Nations");
     // console.log(resNation);
     this.nations = resNation.data.data;
-
   },
+
+  // setFocusRestaurantCode: function()
+  //   {
+  //     this.$refs.inputRestaurantCode.focus();
+  //   },
 };
 </script>
 

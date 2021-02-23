@@ -59,11 +59,10 @@
 <script>
 import * as axios from "axios";
 export default {
-  
   name: "PopupDelete",
-  props:{
-    idToDelete:String,
-    nameNeedDelete:String
+  props: {
+    idToDelete: String,
+    nameNeedDelete: String,
   },
 
   methods: {
@@ -76,28 +75,25 @@ export default {
 
     deleteRestaurant() {
       const response = axios
-            .delete("https://localhost:44305/api/v1/restaurants/"+ 
-            this.idToDelete)
-            .catch((e) => console.log(e));
-      if(response){
+        .delete("https://localhost:44305/api/v1/restaurants/" + this.idToDelete)
+        .catch((e) => console.log(e));
+      if (response) {
         location.reload();
         this.closePopup();
-        alert("Xóa thành công cửa hàng "+ this.nameNeedDelete);
+        alert("Xóa thành công cửa hàng " + this.nameNeedDelete);
       }
-      
     },
   },
   data() {
     return {
       showPopup: false,
-      restaurants:[],
+      restaurants: [],
     };
   },
 };
 </script>
 
 <style scoped>
-
 span {
   font-weight: bold;
 }

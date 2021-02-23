@@ -12,7 +12,6 @@
 @import './pages/_dialog.css';
 @import './basic/_footer.css';
 @import './pages/_popup.css';
-
 @font-face {
     font-family: 'GoogleSans-Regular';
     src: url('../assets/font/GoogleSans-Regular.otf') format('opentype');

@@ -8,12 +8,14 @@
     border-bottom: 1px solid #bbbbbb;
 }
 
-.header .title{
+.header .title {
     font-size: large;
     font-weight: bold;
-    margin-left: 15px;;
+    margin-left: 15px;
+    ;
 }
-.header .accoutInforBox{
+
+.header .accoutInforBox {
     position: relative;
     display: flex;
     height: 60px;
@@ -21,11 +23,13 @@
     align-items: center;
     margin-right: 15px;
 }
-.header .accoutInforBox #myRestaurant{
+
+.header .accoutInforBox #myRestaurant {
     font-weight: bold;
     width: 270px;
 }
-.header .accoutInforBox .accountInfor{
+
+.header .accoutInforBox .accountInfor {
     width: 140px;
     height: 40px;
     margin-left: 10px;
@@ -34,21 +38,25 @@
     align-items: center;
     justify-content: space-between;
 }
-.header .accoutInforBox .accountInfor .accountAvatar{
+
+.header .accoutInforBox .accountInfor .accountAvatar {
     width: 30px;
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 50%;
     background-image: url('../../assets/default-avatar.jpg');
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
 }
-.header .accoutInforBox .accountInfor .accountName{
+
+.header .accoutInforBox .accountInfor .accountName {
     width: 110px;
     display: inline-flex;
     border: none !important;
     outline: none !important;
 }
+
+
 /* .header .accoutInforBox .accountInfor .accountOption{
     width: 16px;
     height: 16px;
@@ -57,7 +65,7 @@
 
 } */
 
-.header .accoutInforBox .callMe{
+.header .accoutInforBox .callMe {
     margin-left: 10px;
     height: 59px;
     width: 59px;
@@ -66,12 +74,14 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-.header .accoutInforBox .report{
+
+.header .accoutInforBox .report {
     margin-left: 10px;
     background: url("../../assets/common-icon.png") no-repeat -179px -179px;
-	width: 16px;
-	height: 16px;
+    width: 16px;
+    height: 16px;
 }
-.header .accoutInforBox:hover{
+
+.header .accoutInforBox:hover {
     cursor: pointer;
 }

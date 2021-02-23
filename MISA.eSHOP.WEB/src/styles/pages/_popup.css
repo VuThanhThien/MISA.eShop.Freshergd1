@@ -6,15 +6,17 @@
     top: 14%;
     background-color: #fff;
     z-index: 4;
-  }
-  .popupContent {
+}
+
+.popupContent {
     height: 15vh;
     display: flex;
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 5%;
-  }
-  .message {
+}
+
+.message {
     padding-left: 20px;
     font-size: 20px;
-  }
+}
