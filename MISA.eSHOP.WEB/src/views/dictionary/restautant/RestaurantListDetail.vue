@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="modal" >
+    <div class="modal">
       <!-- nền xám sau dialog  -->
       <div class="modalMask"></div>
-      <div class="dialog" >
+      <div class="dialog">
         <!-- header của dialog  -->
         <div class="dialogHeader">
           <button class="closeDialog" @click="closeDialog">
@@ -138,7 +138,7 @@
                 </option>
               </select>
             </div>
-            
+
             <!-- quận huyện  -->
             <div class="halfRow">
               <div class="fieldName">Quận / Huyện</div>
@@ -259,9 +259,9 @@ export default {
   props: {
     restaurantToBinding: Object,
     cities: {
-        type: Array,
-        item: Object
-      },
+      type: Array,
+      item: Object,
+    },
   },
 
   data() {
@@ -311,7 +311,10 @@ export default {
     postRestaurant() {
       // Thực hiện post
       const response = axios
-        .post("https://localhost:44305/api/v1/restaurants", this.restaurantToBinding)
+        .post(
+          "https://localhost:44305/api/v1/restaurants",
+          this.restaurantToBinding
+        )
         .catch((e) => console.log(e));
       console.log(response);
     },
@@ -319,18 +322,26 @@ export default {
     /**
      * put res
      */
-    putRestaurant(){
+    putRestaurant() {
       // Thực hiện put
-      // let apiUrl =
-      //   "http://localhost:51888/api/v1/Assets/" + this.dataItem.assetId;
-      // const response = axios
-      //   .put(apiUrl, this.dataItem)
-      //   .catch((e) => console.log(e));
-      // console.log(response);
+      const response = axios
+        .put(
+          "https://localhost:44305/api/v1/restaurants/" +
+            this.restaurantToBinding.restaurantID,
+          this.restaurantToBinding
+        )
+        .catch((e) => console.log(e));
+      if (response) {
+        alert(
+          "Đã cập nhật thành công cửa hàng" +
+            this.restaurantToBinding.restaurantName
+        );
+      }
+      location.reload();
     },
 
     /**
-     * sự kiện nút thêm 
+     * sự kiện nút thêm
      */
     addRestaurant() {
       if (this.validateData.error) {
@@ -436,7 +447,6 @@ export default {
     const resNation = await axios.get("https://localhost:44305/api/Nations");
     // console.log(resNation);
     this.nations = resNation.data.data;
-
   },
 };
 </script>

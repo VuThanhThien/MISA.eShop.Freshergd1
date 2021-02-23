@@ -65,10 +65,7 @@ export default {
     idToDelete:String,
     nameNeedDelete:String
   },
-  // props:{
-  //   idToDelete:String,
-  //   nameNeedDelete:String,
-  // },
+
   methods: {
     /**
      * đóng popup
@@ -84,8 +81,8 @@ export default {
             .catch((e) => console.log(e));
       if(response){
         location.reload();
-        alert("Xóa thành công cửa hàng "+ this.nameNeedDelete);
         this.closePopup();
+        alert("Xóa thành công cửa hàng "+ this.nameNeedDelete);
       }
       
     },

@@ -1380,19 +1380,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\vtthien\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
+      "projectUniqueName": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
       "projectName": "MISA.eSHOP.API",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.API\\obj\\",
+      "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\MISA.eSHOP.API.csproj",
+      "packagesPath": "C:\\Users\\vtthien\\.nuget\\packages\\",
+      "outputPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vtthien\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1406,11 +1406,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
+            "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj": {
+              "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj"
+            "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj": {
+              "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Service\\MISA.eSHOP.Service.csproj"
             }
           }
         }

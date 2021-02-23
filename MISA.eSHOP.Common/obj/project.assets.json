@@ -987,19 +987,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\vtthien\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
+      "projectUniqueName": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
       "projectName": "MISA.eSHOP.Common",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\MISA.eSHOP\\MISA.eSHOP.Common\\obj\\",
+      "projectPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\MISA.eSHOP.Common.csproj",
+      "packagesPath": "C:\\Users\\vtthien\\.nuget\\packages\\",
+      "outputPath": "D:\\vtthien\\MISA.eShop\\MISA.eSHOP.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vtthien\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
