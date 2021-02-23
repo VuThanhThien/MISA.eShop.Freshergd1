@@ -60,7 +60,7 @@ namespace MISA.eSHOP.Service
             {
                 result.Data = new Error()
                 {
-                    DevMsg = DevMsgEnum.DefaultDevMsg,
+                    DevMsg = DevMsgEnum.CannotFound,
                     MoreInfo = MoreInfoEnum.DefaultMoreInfo,
                     UserMsg = UserMsgEnum.DefaultUserMsg
                 };
@@ -86,7 +86,7 @@ namespace MISA.eSHOP.Service
             {
                 result.Data = new Error()
                 {
-                    DevMsg = DevMsgEnum.DefaultDevMsg,
+                    DevMsg = DevMsgEnum.CannotFound,
                     MoreInfo = MoreInfoEnum.DefaultMoreInfo,
                     UserMsg = UserMsgEnum.DefaultUserMsg
                 };
@@ -113,7 +113,7 @@ namespace MISA.eSHOP.Service
             {
                 result.Data = new Error()
                 {
-                    DevMsg = DevMsgEnum.DefaultDevMsg,
+                    DevMsg = DevMsgEnum.CannotFound,
                     MoreInfo = MoreInfoEnum.DefaultMoreInfo,
                     UserMsg = UserMsgEnum.DefaultUserMsg
                 };

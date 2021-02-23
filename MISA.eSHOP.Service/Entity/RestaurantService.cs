@@ -23,9 +23,8 @@ namespace MISA.eSHOP.Service.Entity
             //validate bắt buộc nhập mã cửa hàng
             if (restaurant.RestaurantCode == null || restaurant.RestaurantCode == string.Empty)
             {
-                //TODO viết lại mấy dòng thông báo thiếu mã cửa hàng
-                errorMsg.DevMsg = DevMsgEnum.DefaultDevMsg;
-                errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                errorMsg.DevMsg = DevMsgEnum.RestaurantCodeRequired;
+                errorMsg.UserMsg = UserMsgEnum.RestaurantCodeRequired;
                 serviceResult.Success = false;
                 serviceResult.Data = errorMsg;
                 return serviceResult;
@@ -34,9 +33,8 @@ namespace MISA.eSHOP.Service.Entity
             //validate bắt buộc nhập tên cửa hàng
             if (restaurant.RestaurantName == null || restaurant.RestaurantName == string.Empty)
             {
-                //TODO viết lại mấy dòng thông báo thiếu mã cửa hàng
-                errorMsg.DevMsg = DevMsgEnum.DefaultDevMsg;
-                errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                errorMsg.DevMsg = DevMsgEnum.RestaurantNameRequired;
+                errorMsg.UserMsg = UserMsgEnum.RestaurantNameRequired;
                 serviceResult.Success = false;
                 serviceResult.Data = errorMsg;
                 return serviceResult;
@@ -45,9 +43,8 @@ namespace MISA.eSHOP.Service.Entity
             //validate bắt buộc nhập địa chỉ
             if (restaurant.Address == null || restaurant.Address == string.Empty)
             {
-                //TODO viết lại mấy dòng thông báo thiếu mã cửa hàng
-                errorMsg.DevMsg = DevMsgEnum.DefaultDevMsg;
-                errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                errorMsg.DevMsg = DevMsgEnum.RestaurantAddressRequired;
+                errorMsg.UserMsg = UserMsgEnum.RestaurantAddressRequired;
                 serviceResult.Success = false;
                 serviceResult.Data = errorMsg;
                 return serviceResult;
@@ -79,8 +76,8 @@ namespace MISA.eSHOP.Service.Entity
             {
                 // insert thất bại
                 serviceResult.Success = true;
-                errorMsg.DevMsg = DevMsgEnum.DefaultDevMsg;
-                errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                errorMsg.DevMsg = DevMsgEnum.ValidateFail;
+                errorMsg.UserMsg = UserMsgEnum.ValidateFail;
                 serviceResult.Data = errorMsg;
                 return serviceResult;
             }
@@ -130,6 +127,7 @@ namespace MISA.eSHOP.Service.Entity
                 {
                     serviceResult.Success = false;
                     errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                    errorMsg.DevMsg = DevMsgEnum.CannotFound;
                     serviceResult.Data = errorMsg;
                     return serviceResult;
                 }
@@ -167,8 +165,8 @@ namespace MISA.eSHOP.Service.Entity
             {
                 if (isExisted != null)
                 {
-                    errorMsg.DevMsg = DevMsgEnum.DefaultDevMsg;
-                    errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
+                    errorMsg.DevMsg = DevMsgEnum.DupplicatedRestaurant;
+                    errorMsg.UserMsg = UserMsgEnum.DupplicatedRestaurant;
                     serviceResult.Success = false;
                     serviceResult.Data = errorMsg;
                     return serviceResult;
