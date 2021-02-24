@@ -111,6 +111,8 @@ namespace MISA.eSHOP.Service.Entity
                 // nếu bị trùng lặp, trả về luôn lỗi
                 if (!serviceResult.Success)
                 {
+                    //TODO: Tạo enum mã lỗi trùng mã cửa hàng
+                    serviceResult.MISACode = "1001";
                     return serviceResult;
                 }
 
@@ -143,6 +145,13 @@ namespace MISA.eSHOP.Service.Entity
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Kiểm tra trùng mã cửa hàng
+        /// </summary>
+        /// <param name="restaurant">Thông tin cửa hàng</param>
+        /// <param name="id">Id cửa hàng đang sửa (mặc định là rỗng - ở case thêm mới)</param>
+        /// <returns></returns>
+        /// TODO: khai báo các tham số trả về cho Client
         private ServiceResult CheckDuplicatedRestaurant(Restaurant restaurant, string id = "")
         {
             var serviceResult = new ServiceResult();
@@ -150,11 +159,14 @@ namespace MISA.eSHOP.Service.Entity
 
             //validate trùng mã cửa hàng
             var isExisted = _restaurantDL.GetEntityByCode(restaurant.RestaurantCode);
+            
+            // khi truyền id vào => case check trùng mã khi sửa thông tin
             if (!string.IsNullOrEmpty(id))
             {
-                if (id != isExisted.RestaurantID.ToString())
+                // nếu Id truyền vào (id cửa hàng đang sửa) != ID lấy được trong db => tức là đang sửa thành mã cửa hàng của cửa hàng khác
+                if (isExisted != null && id != isExisted.RestaurantID.ToString())
                 {
-                    errorMsg.DevMsg = DevMsgEnum.DefaultDevMsg;
+                    errorMsg.DevMsg = $"Mã cửa hàng {restaurant.RestaurantCode} đã được sử dụng cho cửa hàng {isExisted.RestaurantName}";
                     errorMsg.UserMsg = UserMsgEnum.DefaultUserMsg;
                     serviceResult.Success = false;
                     serviceResult.Data = errorMsg;
@@ -163,9 +175,11 @@ namespace MISA.eSHOP.Service.Entity
             }
             else
             {
+                // ngược lại, khi không truyền mã ID cửa hàng lên => case check trùng khi thêm mới
+                // khi tìm thấy bản ghi theo mã cửa hàng thì trả về lỗi
                 if (isExisted != null)
                 {
-                    errorMsg.DevMsg = DevMsgEnum.DupplicatedRestaurant;
+                    errorMsg.DevMsg = $"Mã cửa hàng {restaurant.RestaurantCode} đã được sử dụng cho cửa hàng {isExisted.RestaurantName}";
                     errorMsg.UserMsg = UserMsgEnum.DupplicatedRestaurant;
                     serviceResult.Success = false;
                     serviceResult.Data = errorMsg;

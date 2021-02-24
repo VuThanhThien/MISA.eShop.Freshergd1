@@ -24,7 +24,7 @@ namespace MISA.eSHOP.DataLayer
         /// CreatedBy Vtthien 09/02/21
         public IEnumerable<T> GetAll()
         {
-            var sqlString = $"SELECT * FROM {typeof(T).Name}";
+            var sqlString = $"SELECT * FROM {typeof(T).Name} ORDER BY ModifiedDate DESC";
             var entities = _dbContext.Query(sqlString);
 
             return entities;
