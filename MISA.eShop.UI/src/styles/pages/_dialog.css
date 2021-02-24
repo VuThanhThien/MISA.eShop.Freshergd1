@@ -1,0 +1,105 @@
+.dialog {
+    width: 775px;
+    height: 580px;
+    position: fixed;
+    left: calc(50% - 387px);
+    top: calc(50% - 300px);
+    background-color: #fff;
+    z-index: 4;
+    border-radius: 10px;
+}
+
+.modalMask {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: table;
+    transition: opacity 0.3s ease;
+}
+
+.dialogHeader {
+    background-color: #eceaea;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+h3 {
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.closeDialog {
+    margin: 5px;
+    float: right;
+    top: 0;
+    border: none;
+    background-color: transparent !important;
+}
+
+.dialogContent {
+    padding: 15px;
+}
+
+.dialogContent .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#inputRestaurantCode,
+#inputRestaurantName,
+#inputRestaurantAddress {
+    width: 80%;
+}
+
+#inputRestaurantCode :focus {
+    background-color: lighten(purple, 5%);
+    border-color: lighten(purple, 5%);
+}
+
+.row .fieldName {
+    width: 100px;
+    padding-top: 10px;
+}
+
+.row .fieldName span {
+    color: red;
+}
+
+.halfRow {
+    margin-top: 15px;
+    display: flex;
+}
+
+.halfRow .fieldName {
+    padding-top: 10px;
+    width: 150px;
+}
+
+.halfRow input,
+select {
+    width: 200px;
+}
+
+.mergeHalfRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialogFooter {
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+}
+
+.dialogFooter .help {
+    height: 60px;
+    display: flex;
+    width: 20%;
+    padding-top: 15px;
+}

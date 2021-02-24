@@ -1,0 +1,30 @@
+/* .contenBody{} */
+
+.contentHeader {
+    height: 40px;
+    background-color: #026b97;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contentHeader .contentHeaderButton .iconText {
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+.contentHeader .contentHeaderButton .iconHeader {
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+}
+
+.contentFilter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchBox {
+    display: flex;
+}

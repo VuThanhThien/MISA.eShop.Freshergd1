@@ -1,0 +1,99 @@
+/* button header table  */
+
+.contentHeader .contentHeaderButton {
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #026b97;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contentHeader .contentHeaderButton:hover {
+    background-color: #0088c1;
+    cursor: pointer;
+}
+
+
+/* button của dialog  */
+
+.dialogFooter .dialogFooterButtonBox {
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    display: flex;
+}
+
+.dialogFooterButton {
+    height: 35px;
+    width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 7px;
+    display: flex;
+    border-radius: 3px;
+    align-items: center;
+}
+
+#buttonSave {
+    background-color: #026b97;
+    color: white;
+}
+
+#buttonSave:hover {
+    background-color: #0088c1;
+}
+
+#buttonSave:focus {
+    background-color: #00577b;
+}
+
+#buttonSaveNew {
+    color: white;
+    background-color: #026b97;
+}
+
+#buttonSaveNew {
+    background-color: #00577b;
+}
+
+#buttonSaveNew:hover {
+    background-color: #0088c1;
+}
+
+#buttonCancel {
+    background-color: transparent;
+    color: #00577b;
+    border: none;
+    background-color: transparent;
+}
+
+#buttonCancel:hover {
+    align-items: center;
+    border: none;
+    background-color: #8f8f8f;
+}
+
+#buttonDelete {
+    background-color: rgb(228, 85, 85);
+    color: white;
+    border: none;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+#buttonDelete:hover {
+    border: none;
+    background-color: rgb(228, 143, 143);
+    color: white;
+    padding-right: 20px;
+    padding-top: 10px;
+}
