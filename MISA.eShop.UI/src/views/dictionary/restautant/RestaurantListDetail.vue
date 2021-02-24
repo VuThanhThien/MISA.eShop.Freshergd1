@@ -47,7 +47,8 @@
               Tên cửa hàng
               <span>*</span>
             </div>
-            <input autofocus
+            <input
+              autofocus
               type="text"
               id="inputRestaurantName"
               v-model="restaurantToBinding.restaurantName"
@@ -295,7 +296,7 @@ export default {
         error: false,
         msg: "",
       };
-
+      //check data mã cửa hàng
       if (
         this.restaurantToBinding.restaurantCode == null ||
         this.restaurantToBinding.restaurantCode == ""
@@ -305,6 +306,7 @@ export default {
           msg: "Vui lòng nhập mã cửa hàng",
         };
       }
+      //check data tên cửa hàng
       if (
         this.restaurantToBinding.restaurantName == null ||
         this.restaurantToBinding.restaurantName == ""
@@ -314,6 +316,7 @@ export default {
           msg: "Vui lòng chọn tên cửa hàng",
         };
       }
+      //check data địa chỉ cửa hàng
       if (
         this.restaurantToBinding.address == null ||
         this.restaurantToBinding.address == ""
@@ -384,7 +387,7 @@ export default {
 
           if (response.status == 200) {
             this.$notify({
-              type: 'success',
+              type: "success",
               title: "Important message",
               text:
                 "Đã cập nhật thành công cửa hàng " +
@@ -395,7 +398,7 @@ export default {
         .catch((e) => {
           if (e.response.status == 400) {
             this.$notify({
-              type: 'error',
+              type: "error",
               title: "Important message",
               text:
                 "Cập nhật thông tin cửa hàng thất bại : " +
@@ -405,7 +408,7 @@ export default {
 
           if (e.response.status == 500) {
             this.$notify({
-              type: 'error',
+              type: "error",
               title: "Important message",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
@@ -419,10 +422,10 @@ export default {
     addRestaurant() {
       if (this.validateData.error) {
         this.$notify({
-              type: 'warn',
-              title: "Important message",
-              text: this.validateData.msg,
-            });
+          type: "warn",
+          title: "Important message",
+          text: this.validateData.msg,
+        });
       } else {
         if (
           this.restaurantToBinding.restaurantID ==
@@ -453,10 +456,10 @@ export default {
     addAndNewRestaurant() {
       if (this.validateData.error) {
         this.$notify({
-              type: 'warn',
-              title: "Important message",
-              text: this.validateData.msg,
-            });
+          type: "warn",
+          title: "Important message",
+          text: this.validateData.msg,
+        });
       } else {
         if (
           this.restaurantToBinding.restaurantID ==
@@ -547,10 +550,7 @@ export default {
     this.streets = resStreets.data.data;
   },
   //#endregion
-  // setFocusRestaurantCode: function()
-  //   {
-  //     this.$refs.inputRestaurantCode.focus();
-  //   },
+
 };
 </script>
 

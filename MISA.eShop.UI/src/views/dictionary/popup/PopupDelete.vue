@@ -67,9 +67,6 @@ export default {
   },
 
   methods: {
-    openSnackbar() {
-      this.$store.dispatch("openSnackbar");
-    },
     /**
      * đóng popup
      */
@@ -83,6 +80,7 @@ export default {
         .catch((e) => console.log(e));
       if (response) {
         // location.reload();
+        //  this.$forceUpdate;
         this.closePopup();
         this.$notify({
           title: "Important message",

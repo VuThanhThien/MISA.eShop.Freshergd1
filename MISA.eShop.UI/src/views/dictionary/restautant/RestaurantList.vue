@@ -69,7 +69,7 @@
     </div>
 
     <!-- table  -->
-    <div class="gridTable" v-if="renderComponent">
+    <div class="gridTable" >
       <table class="tableContent">
         <thead>
           <tr class="filter">
@@ -189,6 +189,7 @@ import Dialog from "./RestaurantListDetail";
 import Popup from "../popup/PopupDelete";
 export default {
   name: "Restaurant",
+  props: {},
   components: {
     Dialog,
     Popup,
@@ -206,6 +207,8 @@ export default {
     showPopup() {
       return this.$store.state.showPopup;
     },
+    //
+
   },
   methods: {
     resetDataRestaurant() {
@@ -280,12 +283,12 @@ export default {
   },
   data() {
     return {
+      //TODO filter
       filterRestaurantCode: [],
       filterRestaurantName: "",
       filterPhone: "",
       nations: [],
       citiesFromNation: [],
-      renderComponent: true,
       idToDelete: "",
       nameNeedDelete: "",
       isActive: -1,
