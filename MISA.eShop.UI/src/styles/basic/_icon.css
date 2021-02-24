@@ -48,15 +48,15 @@
 
 .contentHeader .contentHeaderButton .iconHeader .iconAdd {
     background: url("../../assets/common-icon.png") no-repeat -4px -130px;
-    width: 16px;
+    width: 10px;
     height: 16px;
     margin-top: 6px;
 }
 
 .contentHeader .contentHeaderButton .iconHeader .iconDupplicate {
     background: url("../../assets/common-icon.png") no-repeat -54px -204px;
-    width: 16px;
-    height: 16px;
+    width: 11px;
+    height: 13px;
     margin-top: 3px;
 }
 
@@ -69,15 +69,15 @@
 
 .contentHeader .contentHeaderButton .iconHeader .iconDelete {
     background: url("../../assets/common-icon.png") no-repeat -105px -204px;
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 14px;
     margin-top: 3px;
 }
 
 .contentHeader .contentHeaderButton .iconHeader .iconImport {
     background: url("../../assets/common-icon.png") no-repeat -129px -202px;
-    width: 16px;
-    height: 16px;
+    width: 13px;
+    height: 15px;
 }
 
 .searchBox .searchIcon {

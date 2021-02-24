@@ -79,13 +79,14 @@ export default {
         .delete("https://localhost:44305/api/v1/restaurants/" + this.idToDelete)
         .catch((e) => console.log(e));
       if (response) {
-        // location.reload();
+        
         //  this.$forceUpdate;
         this.closePopup();
         this.$notify({
           title: "Important message",
-          text: "Xóa thành công cửa hàng!" ,
+          text: "Xóa thành công cửa hàng!",
         });
+        // location.reload();
       }
     },
   },

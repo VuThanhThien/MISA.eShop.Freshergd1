@@ -1,0 +1,6 @@
+chưa bỏ được isActive
+focus vào ô đầu tiên
+border đỏ những ô còn thiếu khi chưa nhập mà đã lưu
+sửa load lại api thay vì load location
+tab index
+key up
