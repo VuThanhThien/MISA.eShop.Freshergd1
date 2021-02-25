@@ -26,10 +26,10 @@ namespace MISA.eSHOP.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ServiceResult GetAllRestaurant()
+        public IActionResult GetAllRestaurant()
         {
             var serviceResult = _restaurantService.GetAll();
-            return serviceResult;
+            return Ok(serviceResult);
         }
 
         /// <summary>
@@ -38,10 +38,10 @@ namespace MISA.eSHOP.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public ServiceResult GetById([FromRoute] Guid id)
+        public IActionResult GetById([FromRoute] Guid id)
         {
             var serviceResult = _restaurantService.GetById(id);
-            return serviceResult;
+            return Ok(serviceResult);
         }
 
         /// <summary>
@@ -112,6 +112,20 @@ namespace MISA.eSHOP.API.Controllers
             {
                 return StatusCode(200, res.Data);
             }
+        }
+
+        /// <summary>
+        /// Tìm kiếm thông tin
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] string key, [FromQuery] string value)
+        {
+            var restaurants = _restaurantService.Search(key, value);
+
+            return Ok(restaurants);
         }
     }
 }

@@ -188,5 +188,32 @@ namespace MISA.eSHOP.Service.Entity
             }
             return serviceResult;
         }
+
+        public ServiceResult Search(string fieldName, string value)
+        {
+
+            var result = new ServiceResult();
+            var listEntity = _restaurantDL.Search(fieldName, value);
+
+            if (listEntity != null)
+            {
+                result.Data = listEntity;
+                result.MISACode = "200";
+                result.Success = true;
+            }
+            else
+            {
+                result.Data = new Error()
+                {
+                    DevMsg = DevMsgEnum.DefaultDevMsg,
+                    MoreInfo = MoreInfoEnum.DefaultMoreInfo,
+                    UserMsg = UserMsgEnum.DefaultUserMsg
+                };
+                result.Success = false;
+                result.MISACode = "400";
+            }
+
+            return result;
+        }
     }
 }

@@ -69,7 +69,7 @@
     </div>
 
     <!-- table  -->
-    <div class="gridTable" >
+    <div class="gridTable">
       <table class="tableContent">
         <thead>
           <tr class="filter">
@@ -77,14 +77,22 @@
               Mã cửa hàng
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" />
+                <input
+                  class="searchField"
+                  @keyup.enter="searchRestaurantCode"
+                  v-model="enterRestaurantCode"
+                />
               </div>
             </th>
             <th width="15%">
               Tên cửa hàng
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" v-model="filterRestaurantName" />
+                <input
+                  class="searchField"
+                  v-model="enterRestaurantName"
+                  @keyup.enter="searchRestaurantName"
+                />
               </div>
             </th>
             <th width="45%">
@@ -143,9 +151,7 @@
               </div>
             </td>
             <td>
-              <div class="cell">
-                  Đang hoạt động
-              </div>
+              <div class="cell">Đang hoạt động</div>
             </td>
           </tr>
         </tbody>
@@ -212,7 +218,6 @@ export default {
       return this.$store.state.showPopup;
     },
     //
-
   },
   methods: {
     resetDataRestaurant() {
@@ -283,6 +288,23 @@ export default {
       this.idToDelete = restaurant.restaurantID;
       //gán tên cửa hàng cần xóa
       this.nameNeedDelete = restaurant.restaurantName;
+    },
+
+    async searchRestaurantCode() {
+      const response = await axios.get(
+        "https://localhost:44305/api/v1/restaurants/search?key=RestaurantCode&value=" +
+          this.enterRestaurantCode
+      );
+      // this.restaurants = response.data.data;
+      setTimeout(() => (this.restaurants = response.data.data), 2000);
+    },
+
+    async searchRestaurantName() {
+      const response = await axios.get(
+        "https://localhost:44305/api/v1/restaurants/search?key=RestaurantName&value=" +
+          this.enterRestaurantName
+      );
+      setTimeout(() => (this.restaurants = response.data.data), 2000);
     },
   },
   data() {

@@ -22,5 +22,13 @@ namespace MISA.eSHOP.Service.Interface
         /// <param name="restaurant">đối tượng cửa hàng</param>
         /// <returns></returns>
         ServiceResult UpdateRestaurant(Guid id, Restaurant restaurant);
+
+        /// <summary>
+        /// Tìm kiếm
+        /// </summary>
+        /// <param name="fieldName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        ServiceResult Search(string fieldName, string value);
     }
 }
