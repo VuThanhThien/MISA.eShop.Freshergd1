@@ -289,9 +289,6 @@ export default {
 
   computed: {
     validateData() {
-      // const listRestaurantCode = axios
-      // .get("")
-
       let returnData = {
         error: false,
         msg: "",
@@ -342,9 +339,9 @@ export default {
           this.restaurantToBinding
         )
         .then((response) => {
-          console.log("Response :" + response);
           if (response.data) {
             this.$notify({
+              //thông báo thêm mới
               title: "Important message",
               text:
                 "Thêm mới thành công cửa hàng " +
@@ -355,17 +352,19 @@ export default {
           }
         })
         .catch((e) => {
-          console.log("response error : ", e.response.data);
+          // console.log("response error : ", e.response.data);
           if (e.response.status == 400) {
             this.$notify({
+              // bad request
               type: "error",
               title: "Important message",
-              text: "Thêm mới cửa hàng thất bại ",
+              text: "Thêm mới cửa hàng thất bại (BAD REQUEST)",
             });
           }
 
           if (e.response.status == 500) {
             this.$notify({
+              //Lỗi server
               title: "Important message",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
@@ -388,6 +387,7 @@ export default {
           if (response.status == 201) {
             console.log("log");
             this.$notify({
+              //Sửa thành công
               type: "success",
               title: "Important message",
               text:
@@ -425,22 +425,24 @@ export default {
     addRestaurant() {
       if (this.validateData.error) {
         this.$notify({
+          //Lỗi validate
           type: "warn",
           title: "Important message",
           text: this.validateData.msg,
         });
       } else {
         if (
+          //Nếu object cửa hàng bind lên form mà chưa có id thì là thêm mới
           this.restaurantToBinding.restaurantID ==
           "00000000-0000-0000-0000-000000000000"
         ) {
           this.postRestaurant();
         } else {
+          //nếu có id rồi thì là sửa
           this.putRestaurant();
         }
 
         this.closeDialog();
-        // location.reload();
       }
     },
 
@@ -453,6 +455,7 @@ export default {
     },
 
     /**
+     * TODO
      * sự kiện lưu và thêm mới
      */
     addAndNewRestaurant() {
@@ -472,6 +475,7 @@ export default {
           this.putRestaurant();
         }
         this.closeDialog();
+        // this.$store.dispatch("openDialog");
       }
     },
 
@@ -534,7 +538,6 @@ export default {
    */
   async created() {
     const resNation = await axios.get("https://localhost:44305/api/Nations");
-    // console.log(resNation);
     this.nations = resNation.data.data;
 
     const resCity = await axios.get("https://localhost:44305/api/Cities");
