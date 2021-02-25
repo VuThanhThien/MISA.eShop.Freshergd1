@@ -24,7 +24,9 @@
           <h3>Xóa dữ liệu</h3>
         </div>
         <div class="popupContent">
-          <div class="iconConfirm"></div>
+          <div class="question">
+                <i id="iconquestion" class="fa fa-question-circle fa-4x" aria-hidden="true"></i>
+            </div>
           <div class="message">
             Bạn có chắc muốn xóa cửa hàng
             <span>{{ nameNeedDelete }}</span>
@@ -104,5 +106,14 @@ export default {
 <style scoped>
 span {
   font-weight: bold;
+}
+.question{
+    height: 60px;
+    width: 60px;
+    align-items: center;
+}
+#iconquestion{
+    color: #026b97;
+    padding: 14px;
 }
 </style>

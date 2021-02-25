@@ -94,18 +94,22 @@
                 <input class="searchField" />
               </div>
             </th>
-            <th width="10%">
+            <th width="8%">
               Số điện thoại
               <div class="filterField">
                 <div class="iconSearch">*</div>
                 <input class="searchField" v-model="filterPhone" />
               </div>
             </th>
-            <th width="5%">
-              Mã số thuế
+            <th width="8%">
+              Trạng thái
               <div class="filterField">
-                <div class="iconSearch">*</div>
-                <input class="searchField" />
+                <!-- <div class="iconSearch">*</div>
+                <input class="searchField" /> -->
+                <select style="width: 100%">
+                  <option value="1">Đang hoạt động</option>
+                  <option value="2">Ngừng hoạt động</option>
+                </select>
               </div>
             </th>
           </tr>
@@ -140,7 +144,7 @@
             </td>
             <td>
               <div class="cell">
-                {{ restaurant.taxCode }}
+                  Đang hoạt động
               </div>
             </td>
           </tr>
