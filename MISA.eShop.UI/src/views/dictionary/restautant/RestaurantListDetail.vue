@@ -81,6 +81,7 @@
                 type="text"
                 id="phoneNumber"
                 v-model="restaurantToBinding.phoneNumber"
+                placeholder="Nhập số điện thoại"
               />
             </div>
             <!-- thuế  -->
@@ -90,6 +91,7 @@
                 type="text"
                 id="taxCode"
                 v-model="restaurantToBinding.taxCode"
+                placeholder="Nhập mã số thuế"
               />
             </div>
           </div>
