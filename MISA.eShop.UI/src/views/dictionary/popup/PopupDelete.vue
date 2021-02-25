@@ -24,7 +24,13 @@
           <h3>Xóa dữ liệu</h3>
         </div>
         <div class="popupContent">
-          <div class="iconConfirm"></div>
+          <div class="question">
+            <i
+              id="iconquestion"
+              class="fa fa-question-circle fa-4x"
+              aria-hidden="true"
+            ></i>
+          </div>
           <div class="message">
             Bạn có chắc muốn xóa cửa hàng
             <span>{{ nameNeedDelete }}</span>
@@ -73,25 +79,31 @@ export default {
     closePopup() {
       this.$store.dispatch("closePopup");
     },
-
+    /**
+     * Xóa cửa hàng
+     * Created by Vtt
+     */
     deleteRestaurant() {
+      // gọi api
       const response = axios
         .delete("https://localhost:44305/api/v1/restaurants/" + this.idToDelete)
         .catch((e) => console.log(e));
       if (response) {
-        
-        //  this.$forceUpdate;
+        //nếu xóa thành công thì đóng popup
         this.closePopup();
+        //hiện noti
         this.$notify({
           title: "Important message",
           text: "Xóa thành công cửa hàng!",
         });
-        // location.reload();
+        // load lai trang sau 2s
+        setTimeout(() => location.reload(), 2000);
       }
     },
   },
   data() {
     return {
+      myVar: "",
       showPopup: false,
       restaurants: [],
     };
@@ -102,5 +114,14 @@ export default {
 <style scoped>
 span {
   font-weight: bold;
+}
+.question {
+  height: 60px;
+  width: 60px;
+  align-items: center;
+}
+#iconquestion {
+  color: #026b97;
+  padding: 14px;
 }
 </style>

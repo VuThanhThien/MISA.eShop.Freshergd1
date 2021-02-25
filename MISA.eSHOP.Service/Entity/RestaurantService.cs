@@ -159,7 +159,7 @@ namespace MISA.eSHOP.Service.Entity
 
             //validate trùng mã cửa hàng
             var isExisted = _restaurantDL.GetEntityByCode(restaurant.RestaurantCode);
-            
+
             // khi truyền id vào => case check trùng mã khi sửa thông tin
             if (!string.IsNullOrEmpty(id))
             {
@@ -187,6 +187,39 @@ namespace MISA.eSHOP.Service.Entity
                 }
             }
             return serviceResult;
+        }
+
+        /// <summary>
+        /// Tìm kiếm cửa hàng theo tên trường và value của giá trị cần tìm
+        /// </summary>
+        /// <param name="fieldName">Tên trường tìm kiếm</param>
+        /// <param name="value">Giá trị muốn tìm</param>
+        /// <returns></returns>
+        public ServiceResult Search(string fieldName, string value)
+        {
+
+            var result = new ServiceResult();
+            var listEntity = _restaurantDL.Search(fieldName, value);
+
+            if (listEntity != null)
+            {
+                result.Data = listEntity;
+                result.MISACode = "200";
+                result.Success = true;
+            }
+            else
+            {
+                result.Data = new Error()
+                {
+                    DevMsg = DevMsgEnum.DefaultDevMsg,
+                    MoreInfo = MoreInfoEnum.DefaultMoreInfo,
+                    UserMsg = UserMsgEnum.DefaultUserMsg
+                };
+                result.Success = false;
+                result.MISACode = "400";
+            }
+
+            return result;
         }
     }
 }

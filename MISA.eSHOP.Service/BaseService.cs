@@ -33,7 +33,7 @@ namespace MISA.eSHOP.Service
             {
                 result.Data = new Error()
                 {
-                    //todo thêm các enum khác nữa...
+                    //TODO thêm các enum khác nữa...
                     DevMsg = DevMsgEnum.DefaultDevMsg,
                     MoreInfo = MoreInfoEnum.DefaultMoreInfo,
                     UserMsg = UserMsgEnum.DefaultUserMsg

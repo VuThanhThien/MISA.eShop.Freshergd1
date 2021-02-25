@@ -69,7 +69,7 @@
     </div>
 
     <!-- table  -->
-    <div class="gridTable" >
+    <div class="gridTable">
       <table class="tableContent">
         <thead>
           <tr class="filter">
@@ -77,35 +77,53 @@
               Mã cửa hàng
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" />
+                <input
+                  class="searchField"
+                  @keyup.enter="searchRestaurantCode"
+                  v-model="enterRestaurantCode"
+                />
               </div>
             </th>
             <th width="15%">
               Tên cửa hàng
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" v-model="filterRestaurantName" />
+                <input
+                  class="searchField"
+                  v-model="enterRestaurantName"
+                  @keyup.enter="searchRestaurantName"
+                />
               </div>
             </th>
             <th width="45%">
               Địa chỉ
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" />
+                <input class="searchField" 
+                @keyup.enter="searchAddress"
+                v-model="enterAddress"
+                />
               </div>
             </th>
-            <th width="10%">
+            <th width="8%">
               Số điện thoại
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" v-model="filterPhone" />
+                <input class="searchField"
+                @keyup.enter="searchPhoneNumber"
+                  v-model="enterPhoneNumber"
+                />
               </div>
             </th>
-            <th width="5%">
-              Mã số thuế
+            <th width="8%">
+              Trạng thái
               <div class="filterField">
-                <div class="iconSearch">*</div>
-                <input class="searchField" />
+                <!-- <div class="iconSearch">*</div>
+                <input class="searchField" /> -->
+                <select style="width: 100%">
+                  <option value="1">Đang hoạt động</option>
+                  <option value="2">Ngừng hoạt động</option>
+                </select>
               </div>
             </th>
           </tr>
@@ -139,9 +157,7 @@
               </div>
             </td>
             <td>
-              <div class="cell">
-                {{ restaurant.taxCode }}
-              </div>
+              <div class="cell">Đang hoạt động</div>
             </td>
           </tr>
         </tbody>
@@ -208,7 +224,6 @@ export default {
       return this.$store.state.showPopup;
     },
     //
-
   },
   methods: {
     resetDataRestaurant() {
@@ -256,9 +271,11 @@ export default {
      */
     openPopup() {
       if (this.isActive > -1) {
+        //Nếu active 1 row
         this.$store.dispatch("openPopup");
       } else {
         this.$notify({
+          //Thông báo chưa chọn
           title: "Important message",
           text: "Chọn cửa hàng cần xóa !",
           type: "warn",
@@ -280,13 +297,54 @@ export default {
       //gán tên cửa hàng cần xóa
       this.nameNeedDelete = restaurant.restaurantName;
     },
+    /**
+     * Tìm kiếm theo code
+     */
+    async searchRestaurantCode() {
+      const response = await axios.get(
+        "https://localhost:44305/api/v1/restaurants/search?key=RestaurantCode&value=" +
+          this.enterRestaurantCode
+      );
+      //Tìm kiếm sau 2s
+      setTimeout(() => (this.restaurants = response.data.data), 2000);
+    },
+    /**
+     * Tìm kiếm theo tên cửa hàng
+     */
+    async searchRestaurantName() {
+      const response = await axios.get(
+        "https://localhost:44305/api/v1/restaurants/search?key=RestaurantName&value=" +
+          this.enterRestaurantName
+      );
+      setTimeout(() => (this.restaurants = response.data.data), 2000);
+    },
+
+    /**Tìm kiếm theo địa chỉ */
+    async searchAddress() {
+      const response = await axios.get(
+        "https://localhost:44305/api/v1/restaurants/search?key=Address&value=" +
+          this.enterAddress
+      );
+      setTimeout(() => (this.restaurants = response.data.data), 2000);
+    },
+
+    /**
+     * Tìm kiếm số điện thoại
+     */
+    async searchPhoneNumber() {
+      const response = await axios.get(
+        "https://localhost:44305/api/v1/restaurants/search?key=PhoneNumber&value=" +
+          this.enterPhoneNumber
+      );
+      setTimeout(() => (this.restaurants = response.data.data), 2000);
+    },
   },
   data() {
     return {
-      //TODO filter
-      filterRestaurantCode: [],
-      filterRestaurantName: "",
-      filterPhone: "",
+      enterPhoneNumber:"",
+      enterAddress:"",
+      enterRestaurantCode:"",
+      enterRestaurantName:"",
       nations: [],
       citiesFromNation: [],
       idToDelete: "",
@@ -335,22 +393,24 @@ export default {
       restaurants: [
         {
           restaurantID: "00000000-0000-0000-0000-000000000000",
-          restaurantCode: "",
-          restaurantName: "",
-          address: "",
-          phoneNumber: "",
-          taxCode: "",
+          restaurantCode: "Res 01",
+          restaurantName: "Res01",
+          address: "15 Duy Tân",
+          phoneNumber: "01662804035",
+          taxCode: "AA",
           nationID: "00000000-0000-0000-0000-000000000000",
           cityID: "00000000-0000-0000-0000-000000000000",
           districtID: "00000000-0000-0000-0000-000000000000",
           communeID: "00000000-0000-0000-0000-000000000000",
           streetID: "00000000-0000-0000-0000-000000000000",
-        },
+        }
       ],
     };
   },
 
-  //Gọi api lấy thông tin cửa hàng
+  /**
+   * Gọi api lấy thông tin cửa hàng
+   */
   async created() {
     const response = await axios.get(
       "https://localhost:44305/api/v1/restaurants"
@@ -381,8 +441,6 @@ export default {
   width: calc(100% - 40px);
   border-radius: 4px;
   border: 1px solid #9e9e9e;
-  /* width: 100%; */
-  /* background-color: red; */
 }
 .hightlight {
   background-color: #026b97;

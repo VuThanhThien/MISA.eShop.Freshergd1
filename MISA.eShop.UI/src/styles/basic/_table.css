@@ -1,5 +1,6 @@
 .gridTable {
     max-height: calc(80vh + 11px);
+    min-height: calc(80vh + 11px);
     overflow: auto;
 }
 

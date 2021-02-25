@@ -3,7 +3,7 @@
       <Navbar />
       <Header />
       <Content />
-      <notifications position="bottom right" clean: true/>
+      <notifications position="bottom right" clean: true style="margin-bottom: 20px"/>
   </div>
 </template>
 
