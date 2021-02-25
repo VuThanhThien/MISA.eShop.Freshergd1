@@ -350,6 +350,8 @@ export default {
                 "Thêm mới thành công cửa hàng " +
                 this.restaurantToBinding.restaurantName,
             });
+            // load lai trang sau 2s
+            setTimeout(() => location.reload(), 2000);
           }
         })
         .catch((e) => {
@@ -383,9 +385,8 @@ export default {
           this.restaurantToBinding
         )
         .then((response) => {
-          console.log(response.data);
-
-          if (response.status == 200) {
+          if (response.status == 201) {
+            console.log("log");
             this.$notify({
               type: "success",
               title: "Important message",
@@ -393,6 +394,8 @@ export default {
                 "Đã cập nhật thành công cửa hàng " +
                 this.restaurantToBinding.restaurantName,
             });
+            // load lai trang sau 2s
+            setTimeout(() => location.reload(), 2000);
           }
         })
         .catch((e) => {
@@ -437,7 +440,6 @@ export default {
         }
 
         this.closeDialog();
-        //load lại màn hình, vì chỉ gọi api xóa nhưng biến lưu danh sách cửa hàng vẫn chưa thay đổi
         // location.reload();
       }
     },
@@ -550,7 +552,6 @@ export default {
     this.streets = resStreets.data.data;
   },
   //#endregion
-
 };
 </script>
 
