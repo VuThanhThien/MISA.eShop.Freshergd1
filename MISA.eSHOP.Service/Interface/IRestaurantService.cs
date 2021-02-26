@@ -30,5 +30,12 @@ namespace MISA.eSHOP.Service.Interface
         /// <param name="value"></param>
         /// <returns></returns>
         ServiceResult Search(string fieldName, string value);
+
+        //TODO đang làm pagin
+        int totalRestaurant();
+
+        int numberPage(int totalPage, int limit);
+
+        ServiceResult paginRestaurant(int start, int limit);
     }
 }

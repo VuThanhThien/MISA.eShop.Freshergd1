@@ -444,5 +444,7 @@ export default {
 }
 .hightlight {
   background-color: #026b97;
+  color: white;
+  border-left: 1px solid #026b97;
 }
 </style>
