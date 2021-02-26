@@ -26,3 +26,17 @@ D:\vtthien\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Serv
 D:\vtthien\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.csproj.CopyComplete
 D:\vtthien\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.dll
 D:\vtthien\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.pdb
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\bin\Debug\netcoreapp3.1\MISA.eSHOP.Service.deps.json
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\bin\Debug\netcoreapp3.1\MISA.eSHOP.Service.dll
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\bin\Debug\netcoreapp3.1\MISA.eSHOP.Service.pdb
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\bin\Debug\netcoreapp3.1\MISA.eSHOP.Common.dll
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\bin\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.dll
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\bin\Debug\netcoreapp3.1\MISA.eSHOP.Common.pdb
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\bin\Debug\netcoreapp3.1\MISA.eSHOP.DataLayer.pdb
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.csprojAssemblyReference.cache
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.AssemblyInfoInputs.cache
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.AssemblyInfo.cs
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.csproj.CoreCompileInputs.cache
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.csproj.CopyComplete
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.dll
+D:\vtthien\MISA.eShop\MISA.eShop\MISA.eSHOP.Service\obj\Debug\netcoreapp3.1\MISA.eSHOP.Service.pdb

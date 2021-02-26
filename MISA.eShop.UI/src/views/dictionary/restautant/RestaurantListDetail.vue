@@ -39,6 +39,7 @@
               v-model="restaurantToBinding.restaurantCode"
               ref="inputRestaurantCode"
               placeholder="Nhập mã cửa hàng"
+              :class="{ borders: validateData.errors !=0 }"
             />
           </div>
           <!-- Dòng tên cửa hàng  -->
@@ -54,6 +55,7 @@
               v-model="restaurantToBinding.restaurantName"
               ref="inputRestaurantName"
               placeholder="Nhập tên cửa hàng"
+              :class="{ borders: validateData.errors !=0 }"
             />
           </div>
           <!-- Địa chỉ  -->
@@ -70,6 +72,7 @@
               v-model="restaurantToBinding.address"
               ref="inputAddress"
               placeholder="Nhập địa chỉ"
+              :class="{ borders: validateData.errors !=0 }"
             ></textarea>
           </div>
           <!-- Số điện thoại và mã thuế  -->
@@ -292,7 +295,7 @@ export default {
   computed: {
     validateData() {
       let returnData = {
-        error: false,
+        errors: 0,
         msg: "",
       };
       //check data mã cửa hàng
@@ -301,7 +304,7 @@ export default {
         this.restaurantToBinding.restaurantCode == ""
       ) {
         returnData = {
-          error: true,
+          errors: 1,
           msg: "Vui lòng nhập mã cửa hàng",
         };
       }
@@ -311,7 +314,7 @@ export default {
         this.restaurantToBinding.restaurantName == ""
       ) {
         returnData = {
-          error: true,
+          errors: 2,
           msg: "Vui lòng chọn tên cửa hàng",
         };
       }
@@ -321,7 +324,7 @@ export default {
         this.restaurantToBinding.address == ""
       ) {
         returnData = {
-          error: true,
+          errors: 3,
           msg: "Vui lòng chọn địa chỉ",
         };
       }
@@ -330,6 +333,24 @@ export default {
   },
 
   methods: {
+
+    checkform(){
+      if(this.restaurantToBinding.restaurantName !='' && this.restaurantToBinding.restaurantCode !='' && this.restaurantToBinding.address !='') 
+      return true;
+      this.errors = 0;
+      if(this.restaurantToBinding.address =='' ){
+        this.errors = 3;
+      return false;
+      }
+      if(this.restaurantToBinding.restaurantCode ==''){
+        this.errors = 2;
+      return false;
+      }
+      if(this.restaurantToBinding.restaurantName =='' ){
+        this.errors = 1;
+      return false;
+      }     
+    },
     /**
      * post restaurant
      */
@@ -354,11 +375,11 @@ export default {
           }
         })
         .catch((e) => {
-          // console.log("response error : ", e.response.data);
+          // console.log("response errors : ", e.response.data);
           if (e.response.status == 400) {
             this.$notify({
               // bad request
-              type: "error",
+              type: "errors",
               title: "Important message",
               text: "Thêm mới cửa hàng thất bại (BAD REQUEST)",
             });
@@ -403,7 +424,7 @@ export default {
         .catch((e) => {
           if (e.response.status == 400) {
             this.$notify({
-              type: "error",
+              type: "errors",
               title: "Important message",
               text:
                 "Cập nhật thông tin cửa hàng thất bại : " +
@@ -413,7 +434,7 @@ export default {
 
           if (e.response.status == 500) {
             this.$notify({
-              type: "error",
+              type: "errors",
               title: "Important message",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
@@ -425,7 +446,8 @@ export default {
      * sự kiện nút thêm
      */
     addRestaurant() {
-      if (this.validateData.error) {
+      this.checkform();
+      if (this.validateData.errors != 0) {
         this.$notify({
           //Lỗi validate
           type: "warn",
@@ -461,7 +483,7 @@ export default {
      * sự kiện lưu và thêm mới
      */
     addAndNewRestaurant() {
-      if (this.validateData.error) {
+      if (this.validateData.errors != 0) {
         this.$notify({
           type: "warn",
           title: "Important message",
@@ -531,10 +553,10 @@ export default {
       // console.log(resStreets);
       this.streets = resStreets.data.data;
     },
+    //#endregion
   },
 
   /**
-   *
    * Lấy thông tin Quốc gia
    * Createdby Vtthien 21/02/21
    */
@@ -556,12 +578,14 @@ export default {
     const resStreets = await axios.get("https://localhost:44305/api/Streets");
     this.streets = resStreets.data.data;
   },
-  //#endregion
 };
 </script>
 
 <style scoped>
 textarea {
   resize: none;
+}
+.borders{
+  border: 1px solid red !important;
 }
 </style>
